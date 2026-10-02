@@ -25,7 +25,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:18p
 main{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
 #row{display:flex;gap:18px;overflow-x:auto;padding:34px 8vw;scroll-snap-type:x proximity;scrollbar-width:none}
 #row::-webkit-scrollbar{display:none}
-.tile{flex:0 0 auto;width:clamp(140px,22vw,230px);aspect-ratio:1;border-radius:16px;background:var(--tile);scroll-snap-align:center;position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s;text-align:left}
+.tile{flex:0 0 auto;width:clamp(160px,min(36vw,48vh),380px);aspect-ratio:1;border-radius:16px;background:var(--tile);scroll-snap-align:center;position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s;text-align:left}
 .tile.empty{opacity:.45;pointer-events:none;background:#2a2b30}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tile .ph{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;font-weight:800;font-size:1.1rem;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35)}
@@ -42,7 +42,7 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 .layer.on{display:grid;place-items:start center;animation:pop .18s ease-out}
 @keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
 .panel{margin:auto;width:min(560px,100%);background:#2b2c32;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.cover{height:170px;display:flex;align-items:flex-end;padding:18px;font-size:1.6rem;font-weight:800;background-size:cover;background-position:center}
+.cover{height:110px;background:#2f3036}.phead{display:flex;align-items:flex-end;gap:16px;padding:0 22px 4px}.pic{width:124px;height:124px;flex:none;object-fit:cover;border-radius:22px;border:4px solid #2b2c32;background:#2b2c32;margin-top:-62px;box-shadow:0 8px 24px rgba(0,0,0,.4)}.pic[hidden]{display:none}.phead h2{margin:0;font-size:1.45rem;line-height:1.15;padding:14px 0 4px}
 .body{padding:18px 22px 8px}
 .body p{margin:0 0 12px;line-height:1.5;color:#d7d8dd}
 .facts{display:grid;gap:8px;margin:0 0 16px}.facts div{display:flex;gap:14px}.facts dt{color:var(--mute);min-width:96px;font-weight:700}.facts dd{margin:0}.body h3{margin:0 0 8px;font-size:1.05rem}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
@@ -96,7 +96,8 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 
 <div class="layer" id="projLayer" role="dialog" aria-modal="true" aria-labelledby="pt">
   <div class="panel">
-    <div class="cover" id="pc"><span id="pt"></span></div>
+    <div class="cover" id="pc"></div>
+    <div class="phead"><img class="pic" id="pimg" alt="" hidden><h2 id="pt"></h2></div>
     <div class="body"><p id="pd"></p><div class="tags" id="ptags"></div></div>
     <a class="opt" id="pu" href="#" target="_blank" rel="noopener"><span>View project</span><span>&rsaquo;</span></a>
     <button class="opt" id="pclose"><span>Back to home</span><span>B</span></button>
@@ -130,14 +131,14 @@ const PROJECTS=[
  {title:"Brand Book",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#0b7a75",c2:"#0a3d4a"}
 ];
 const GAMES=[
- {"title": "The Legend of Zelda: Tears of the Kingdom", "platform": "Switch 2", "time": "72 hrs played", "last": "Last played Tue 9/29", "img": "", "c1": "#00a0e9", "c2": "#04507a"},
- {"title": "Yoshi's Island", "platform": "GBA", "time": "9 hrs played", "last": "Last played yesterday", "img": "", "c1": "#00b86b", "c2": "#065a3a"},
- {"title": "Super Metroid", "platform": "SNES", "time": "11 hrs played", "last": "Last played last week", "img": "", "c1": "#e60012", "c2": "#7a0010"},
- {"title": "Donkey Kong Country Returns", "platform": "Wii", "time": "", "last": "Last played 2 weeks ago", "img": "", "c1": "#f5a300", "c2": "#8a4a00"}
+ {"title": "The Legend of Zelda: Tears of the Kingdom", "platform": "Switch 2", "time": "72 hrs played", "last": "Last played Tue 9/29", "img": "images/games/zelda.jpg", "c1": "#00a0e9", "c2": "#04507a"},
+ {"title": "Yoshi's Island", "platform": "GBA", "time": "9 hrs played", "last": "Last played yesterday", "img": "images/games/yoshi.jpg", "c1": "#00b86b", "c2": "#065a3a"},
+ {"title": "Super Metroid", "platform": "SNES", "time": "11 hrs played", "last": "Last played last week", "img": "images/games/metroid.jpg", "c1": "#e60012", "c2": "#7a0010"},
+ {"title": "Donkey Kong Country Returns", "platform": "Wii", "time": "", "last": "Last played 2 weeks ago", "img": "images/games/dkcr.jpg", "c1": "#f5a300", "c2": "#8a4a00"}
 ];
 /* ===================================================== */
 const $=s=>document.querySelector(s),row=$("#row"),cap=$("#cap");
-const bg=o=>o.img?`background-image:url("${o.img}")`:`background-image:linear-gradient(135deg,${o.c1},${o.c2})`;
+const bg=o=>o.img?`background-image:url('${o.img}')`:`background-image:linear-gradient(135deg,${o.c1},${o.c2})`;
 let opener=null;
 
 PROJECTS.slice(0,10).forEach((p,i)=>{
@@ -157,7 +158,7 @@ function openLayer(l,from){opener=from;l.classList.add("on");(l.querySelector(".
 function closeLayers(){document.querySelectorAll(".layer.on").forEach(l=>l.classList.remove("on"));if(opener)opener.focus();opener=null}
 function openProj(p,from){
   $("#pt").textContent=p.title;$("#pd").innerHTML=(p.industry?`<dl class="facts"><div><dt>Industry</dt><dd>${p.industry}</dd></div><div><dt>Role</dt><dd>${p.role}</dd></div><div><dt>Deliverables</dt><dd>${p.deliverables}</dd></div></dl>`:"")+(p.challenge?`<h3>The Challenge</h3>`+p.challenge.map(t=>`<p>${t}</p>`).join(""):`<p>${p.desc}</p>`);
-  $("#pc").setAttribute("style",bg(p));
+  $("#pc").style.background=p.c1;{const im=$("#pimg");im.hidden=!p.img;if(p.img)im.src=p.img}
   $("#ptags").innerHTML=p.tags.map(t=>`<span>${t}</span>`).join("");
   $("#pu").href=p.slides?"#":p.url;$("#pu").onclick=p.slides?e=>{e.preventDefault();openSlides(p)}:null;openLayer($("#projLayer"),from);
 }
