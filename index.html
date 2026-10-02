@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Khalil Blount | Portfolio</title>
 <style>
-:root{--bg:#1c1d21;--bg2:#26272c;--tile:#2f3036;--ink:#f2f3f5;--mute:#9a9ca5;--ring:#fff;--accent:#e60012;
+:root{--bg:#1c1d21;--bg2:#26272c;--tile:#2f3036;--ink:#f2f3f5;--mute:#9a9ca5;--ring:#fff;--accent:#6f5da7;--purple:#6f5da7;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:inherit}
 html,body{height:100%;margin:0}
@@ -64,11 +64,25 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 #sImg{max-width:100%;max-height:calc(100vh - 150px);border-radius:14px;background:#000;cursor:pointer}
 .vbar{display:flex;gap:12px;align-items:center;font-weight:700}
 .vbar .back{min-width:48px}
+#intro{position:fixed;inset:0;z-index:100;background:var(--purple);display:grid;place-items:center;transition:opacity .7s ease}
+#intro.out{opacity:0;pointer-events:none}
+.intro-logo{width:min(70vw,440px);aspect-ratio:1;-webkit-mask:url(images/logo.svg) center/contain no-repeat;mask:url(images/logo.svg) center/contain no-repeat;background:linear-gradient(105deg,#fff 0%,#fff 38%,#cfc6f5 50%,#fff 62%,#fff 100%);background-size:300% 100%;background-position:100% 0;opacity:0}
+#intro.go .intro-logo{animation:logoIn 1s ease-out forwards,shine 1.4s .55s ease-in-out forwards}
+@keyframes logoIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
+.intro-prompt{position:absolute;left:0;right:0;bottom:calc(11vh + env(safe-area-inset-bottom,0px));text-align:center;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.85);animation:pulse 1.8s ease-in-out infinite;transition:opacity .25s}
+#intro.go .intro-prompt{opacity:0;animation:none}
+@keyframes pulse{50%{opacity:.35}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:520px){header{padding:14px}.profile span.n{display:none}.dock{gap:12px;padding:10px 18px}}
 </style>
 </head>
 <body>
+<div id="intro" role="dialog" aria-label="Welcome">
+  <div class="intro-logo" role="img" aria-label="Blount Creative Co. logo"></div>
+  <div class="intro-prompt" id="introPrompt"></div>
+  <audio id="chime" src="assets/startup.mp3" preload="auto"></audio>
+</div>
 <header>
   <a class="profile" href="about.html" aria-label="About me">
     <img class="avatar" src="images/mii.png" alt=""><span class="n">Khalil Blount</span>
@@ -199,6 +213,29 @@ document.addEventListener("keydown",e=>{
   else if(e.key==="ArrowUp"&&inDock){(tiles[0]||a).focus();e.preventDefault()}
 });
 (row.querySelector("button.tile")||{focus(){}}).focus({preventScroll:true});
+
+/* Startup screen: plays once per visit. Press any key / click / tap to start. */
+(function(){
+  const intro=$("#intro"),chime=$("#chime");
+  let seen=false;try{seen=sessionStorage.getItem("introSeen")==="1"}catch(e){}
+  if(seen||matchMedia("(prefers-reduced-motion:reduce)").matches){intro.remove();return}
+  $("#introPrompt").textContent=matchMedia("(pointer:coarse)").matches?"Tap to start":"Press any button to start";
+  let started=false,done=false;
+  function finish(){
+    if(done)return;done=true;
+    intro.classList.add("out");
+    try{sessionStorage.setItem("introSeen","1")}catch(e){}
+    setTimeout(()=>{intro.remove();const t=row.querySelector("button.tile");if(t)t.focus({preventScroll:true})},750);
+  }
+  function start(){
+    if(started){finish();return}
+    started=true;intro.classList.add("go");
+    try{chime.currentTime=0;const pr=chime.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}
+    setTimeout(finish,3000);
+  }
+  document.addEventListener("keydown",e=>{if(done)return;e.preventDefault();e.stopPropagation();start()},true);
+  intro.addEventListener("pointerdown",start);
+})();
 
 function tick(){$("#clock").textContent=new Date().toLocaleTimeString([],{hour:"numeric",minute:"2-digit"})}
 tick();setInterval(tick,1000);
