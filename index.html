@@ -59,6 +59,11 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 .game .art{aspect-ratio:1;display:flex;align-items:flex-end;padding:10px;font-weight:800;background-size:cover;background-position:center}
 .game .meta{padding:10px 12px;font-size:.85rem;color:var(--mute)}
 .game .meta b{display:block;color:var(--ink);font-size:.95rem}
+#slideLayer{z-index:20;background:rgba(6,6,8,.92)}
+.viewer{width:min(1200px,100%);display:flex;flex-direction:column;align-items:center;gap:14px;margin:auto}
+#sImg{max-width:100%;max-height:calc(100vh - 150px);border-radius:14px;background:#000;cursor:pointer}
+.vbar{display:flex;gap:12px;align-items:center;font-weight:700}
+.vbar .back{min-width:48px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:520px){header{padding:14px}.profile span.n{display:none}.dock{gap:12px;padding:10px 18px}}
 </style>
@@ -105,10 +110,17 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
   </div>
 </div>
 
+<div class="layer" id="slideLayer" role="dialog" aria-modal="true" aria-label="Project slides">
+  <div class="viewer">
+    <img id="sImg" alt="">
+    <div class="vbar"><button class="back" id="sPrev" aria-label="Previous slide">&lsaquo;</button><span id="sCount"></span><button class="back" id="sNext" aria-label="Next slide">&rsaquo;</button><button class="back" id="sClose">Back</button></div>
+  </div>
+</div>
+
 <script>
 /* ===== EDIT YOUR CONTENT HERE (max 10 projects) ===== */
 const PROJECTS=[
- {title:"Cubbie's: Since '85",desc:"",industry:"Restaurant Branding & Marketing Campaign",role:"Art Director",deliverables:"Visual Identity, Digital Ads, Out-of-Home Ads",challenge:["Cubbie’s has long been an ECU and Greenville staple for Southern comfort food, but a recent wave of modern burger joints threatened its hometown dominance. Falling behind the curve due to an outdated 1980s visual identity and a passive marketing strategy, the restaurant needed a modern intervention. I stepped in to spearhead the rebrand.", "First, I overhauled their visual identity… cleaned up the typography and modernized their mascot into a timeless brand asset ready for merchandise, signage, and packaging. Next, I launched the “New Bear in Town” marketing campaign. By cleverly hijacking famous food catchphrases from pop culture’s most iconic bears, the campaign confidently reminds locals and students alike that when it comes to comfort food, Cubbie the Bear still owns the block."],tags:[],url:"#",img:"",c1:"#e60012",c2:"#7a0010"},
+ {title:"Cubbie's: Since '85",desc:"",industry:"Restaurant Branding & Marketing Campaign",role:"Art Director",deliverables:"Visual Identity, Digital Ads, Out-of-Home Ads",challenge:["Cubbie’s has long been an ECU and Greenville staple for Southern comfort food, but a recent wave of modern burger joints threatened its hometown dominance. Falling behind the curve due to an outdated 1980s visual identity and a passive marketing strategy, the restaurant needed a modern intervention. I stepped in to spearhead the rebrand.", "First, I overhauled their visual identity… cleaned up the typography and modernized their mascot into a timeless brand asset ready for merchandise, signage, and packaging. Next, I launched the “New Bear in Town” marketing campaign. By cleverly hijacking famous food catchphrases from pop culture’s most iconic bears, the campaign confidently reminds locals and students alike that when it comes to comfort food, Cubbie the Bear still owns the block."],tags:[],url:"#",img:"images/cubbies/cover.jpg",slides:["images/cubbies/01-hero.jpg","images/cubbies/02-mascot.jpg","images/cubbies/03-logo-suite.jpg","images/cubbies/04-primary-logo.jpg","images/cubbies/05-apparel-mural.jpg","images/cubbies/06-billboard.jpg","images/cubbies/07-posters.jpg","images/cubbies/08-social-ads.jpg"],c1:"#e60012",c2:"#7a0010"},
  {title:"Every Rep Basketball",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#f5a300",c2:"#e8571f"},
  {title:"Carolina Safety Supply",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#00a0e9",c2:"#04507a"},
  {title:"Baked by Love",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#d946a8",c2:"#7a2cbf"},
@@ -147,10 +159,18 @@ function openProj(p,from){
   $("#pt").textContent=p.title;$("#pd").innerHTML=(p.industry?`<dl class="facts"><div><dt>Industry</dt><dd>${p.industry}</dd></div><div><dt>Role</dt><dd>${p.role}</dd></div><div><dt>Deliverables</dt><dd>${p.deliverables}</dd></div></dl>`:"")+(p.challenge?`<h3>The Challenge</h3>`+p.challenge.map(t=>`<p>${t}</p>`).join(""):`<p>${p.desc}</p>`);
   $("#pc").setAttribute("style",bg(p));
   $("#ptags").innerHTML=p.tags.map(t=>`<span>${t}</span>`).join("");
-  $("#pu").href=p.url;openLayer($("#projLayer"),from);
+  $("#pu").href=p.slides?"#":p.url;$("#pu").onclick=p.slides?e=>{e.preventDefault();openSlides(p)}:null;openLayer($("#projLayer"),from);
 }
+let slides=[],si=0,tx=0;
+function showSlide(){$("#sImg").src=slides[si];$("#sImg").alt="Slide "+(si+1)+" of "+slides.length;$("#sCount").textContent=(si+1)+" / "+slides.length}
+function step(d){si=(si+d+slides.length)%slides.length;showSlide()}
+function openSlides(p){slides=p.slides;si=0;showSlide();$("#slideLayer").classList.add("on");$("#sNext").focus()}
+function closeSlides(){$("#slideLayer").classList.remove("on");$("#pu").focus()}
+$("#sPrev").onclick=()=>step(-1);$("#sNext").onclick=()=>step(1);$("#sClose").onclick=closeSlides;$("#sImg").onclick=()=>step(1);
+$("#sImg").addEventListener("touchstart",e=>{tx=e.changedTouches[0].clientX},{passive:true});
+$("#sImg").addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)step(dx<0?1:-1)});
 $("#pclose").onclick=closeLayers;$("#lclose").onclick=closeLayers;
-document.querySelectorAll(".layer").forEach(l=>l.addEventListener("click",e=>{if(e.target===l)closeLayers()}));
+document.querySelectorAll(".layer").forEach(l=>l.addEventListener("click",e=>{if(e.target===l)l.id==="slideLayer"?closeSlides():closeLayers()}));
 
 $("#games").innerHTML=GAMES.map(g=>`<div class="game"><div class="art" style="${bg(g)}" role="img" aria-label="${g.title}">${g.img?"":g.title}</div><div class="meta"><b>${g.title}</b>${g.platform}<br>${[g.time,g.last].filter(Boolean).join(" &middot; ")}</div></div>`).join("");
 $("#libBtn").onclick=e=>openLayer($("#libLayer"),e.currentTarget);
@@ -162,6 +182,11 @@ document.querySelectorAll(".dk").forEach(d=>{
 
 /* Remote-style controls: arrows move, Enter selects, Esc goes back */
 document.addEventListener("keydown",e=>{
+  if($("#slideLayer").classList.contains("on")){
+    if(e.key==="Escape"||e.key==="Backspace"){closeSlides();e.preventDefault()}
+    else if(e.key==="ArrowRight"){step(1);e.preventDefault()}
+    else if(e.key==="ArrowLeft"){step(-1);e.preventDefault()}
+    return}
   if(e.key==="Escape"||e.key==="Backspace"&&document.querySelector(".layer.on")){closeLayers();return}
   if(document.querySelector(".layer.on"))return;
   const tiles=[...row.querySelectorAll("button.tile")],dock=[...document.querySelectorAll(".dk")],a=document.activeElement;
