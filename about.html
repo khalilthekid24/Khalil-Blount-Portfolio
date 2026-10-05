@@ -7,7 +7,7 @@
 <style>
 :root{--bg:#1c1d21;--bg2:#26272c;--tile:#2f3036;--ink:#f2f3f5;--mute:#9a9ca5;--accent:#e60012;box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
-body{margin:0;min-height:100vh;background:radial-gradient(120% 90% at 50% 0%,var(--bg2),var(--bg));color:var(--ink);font-family:"Nunito","Segoe UI",system-ui,sans-serif;padding:calc(24px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px))}
+body{margin:0;min-height:100vh;background:linear-gradient(180deg,rgba(111,93,167,.32) 0%,rgba(111,93,167,.13) 45%,rgba(111,93,167,0) 100%),var(--bg);color:var(--ink);font-family:"Nunito","Segoe UI",system-ui,sans-serif;padding:calc(24px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px))}
 a{color:inherit}
 .back{display:inline-block;background:var(--tile);border-radius:999px;padding:10px 18px;font-weight:700;text-decoration:none;transition:background .15s}
 .back:hover,.back:focus{background:#fff;color:#1c1d21;outline:none}
@@ -19,22 +19,22 @@ p{line-height:1.6;color:#d7d8dd}
 .links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
 .links a{background:var(--tile);border-radius:999px;padding:10px 18px;font-weight:700;text-decoration:none;transition:background .15s}
 .links a:hover,.links a:focus{background:#fff;color:#1c1d21;outline:none}
+.abline{border:0;height:2px;background:#fff;margin:26px 0}
+.absec{margin-bottom:26px}.absec h3{margin:0 0 14px;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase}
+.exp{display:grid;gap:16px}.row{display:flex;justify-content:space-between;align-items:baseline;gap:6px 18px;flex-wrap:wrap}
+.row .t{display:flex;flex-direction:column;gap:2px}.row .t span,.row .d{color:var(--mute);font-weight:300}.row .d{white-space:nowrap}
+.skills{display:flex;flex-wrap:wrap;gap:10px}.skill{background:#6f5da7;color:#fff;font-weight:700;font-size:.92rem;border-radius:14px;padding:11px 17px}
+.card{max-width:860px}
+.sub{font-weight:300;color:var(--mute)}
 </style>
 </head>
 <body>
 <a class="back" href="index.html">Back to home</a>
-<main class="card">
-  <div class="head">
-    <img class="avatar" src="images/mii.png" alt="Khalil's Mii avatar">
-    <h1>Khalil Blount</h1>
-  </div>
-  <p>I’m Khalil. Consider me just a man and his MacBook: A multidisciplinary graphic designer navigating the labyrinth of paths within the creative world. At every turn, my sights are set high. For now, I approach every opportunity with a sense of authentic creativity and a hunger for knowledge that guides me toward the horizon.</p>
-  <p>With years of professional experience and a successful freelance practice, I’ve become adept at both digital and print design. I specialize in branding, marketing collateral, and illustration, with the ultimate goal of bringing my talents to a team where creativity is both fostered and valued.</p>
-  <p>I don't just design to provide an attractive flair; I build visual systems that ensure brand messaging is clear, concise, and driving engagement across any industry.</p>
-  <div class="links">
-    <a href="https://www.instagram.com/blountcreativeco/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.linkedin.com/in/khalil-blount/" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</main>
+<main class="card"><div class="head"><div style="display:flex;gap:16px;justify-content:center"><img class="avatar" src="images/mii.png" alt="Khalil's Mii avatar"><img class="avatar" src="images/about/me.jpg" alt="Khalil Blount"></div><h1>Khalil Blount</h1><div class="sub">Graphic Designer/Art Director</div></div><p>What’s up, y’all? If I’m not currently blowing my laptop's RAM to shreds by running Illustrator, Photoshop, and InDesign at the same time...</p><p>I’m probably nose-deep in the screen of my Nintendo Switch, perusing a comic book store's back issues of Teenage Mutant Ninja Turtles or Adventures of Superman, scavenging Marketplace for retro game consoles, or researching which NY Yankees baseball caps I do not currently own though I rarely watch a game.</p><p>I love design, which may surprise you after reading my education section, because I never actually studied it, as most people in the field have. But I have dreamt of it being my career since I was a child.</p><p>If you want to work with someone who can whip up cool designs, be your tag partner in Super Smash Bros., or break down the conflicting origin stories of Master Splinter, I’m definitely your guy.</p>
+<hr class="abline">
+<section class="absec"><h3>Experience</h3><div class="exp"><div class="row"><div class="t"><b>Graphic Design Intern</b><span>Sumner Group</span></div><div class="d">07/2026 – Present</div></div><div class="row"><div class="t"><b>Graphic Designer</b><span>Morgan Printers, Inc.</span></div><div class="d">03/2025 – 06/2026</div></div><div class="row"><div class="t"><b>Graphic Design Intern</b><span>Raleigh Firebirds (TBL)</span></div><div class="d">11/2025 – 05/2026</div></div><div class="row"><div class="t"><b>Graphic & Digital Marketing Intern</b><span>No Filter. Just Art.</span></div><div class="d">07/2025 – 01/2026</div></div><div class="row"><div class="t"><b>Graphic Design Team Member</b><span>1893 Brand Studio</span></div><div class="d">08/2024 – 01/2025</div></div><div class="row"><div class="t"><b>Freelance Brand Designer & Illustrator</b><span>Blount Creative Co.</span></div><div class="d">05/2024 – Present</div></div></div></section>
+<section class="absec"><h3>Education</h3><div class="exp"><div class="row"><div class="t"><b>The University of North Carolina at Chapel Hill</b><span>B.A. in Psychology, Minor in Studio Art | GPA: 3.473</span></div><div class="d">2021 – 2024</div></div></div></section>
+<section class="absec"><h3>Skills</h3><div class="skills"><span class="skill">Visual Identity Systems</span><span class="skill">Brand Guidelines</span><span class="skill">Logo Design</span><span class="skill">Art Direction</span><span class="skill">Social Media Content (Meta/TikTok)</span><span class="skill">Layout & Presentation Design</span><span class="skill">Illustrator</span><span class="skill">Photoshop</span><span class="skill">InDesign</span><span class="skill">Figma</span><span class="skill">Premiere Pro</span><span class="skill">After Effects</span><span class="skill">Motion Graphics</span><span class="skill">Digital/Vector Illustration</span><span class="skill">Packaging Design</span><span class="skill">Color Management (CMYK/Pantone)</span></div></section>
+<div class="links"><a href="https://www.instagram.com/blountcreativeco/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/khalil-blount/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:khalilmb1007@gmail.com">Email</a><a href="tel:+12523500299">Phone</a></div></main>
 </body>
 </html>

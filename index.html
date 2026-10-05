@@ -3,14 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Khalil Blount | Portfolio</title>
+<title>Khalil Blount | Graphic Designer/Art Director</title>
+<meta name="description" content="Portfolio of Khalil Blount, a graphic designer and art director specializing in branding, marketing collateral, and illustration.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Khalil Blount">
+<meta property="og:title" content="Khalil Blount | Graphic Designer/Art Director">
+<meta property="og:description" content="Portfolio of Khalil Blount, a graphic designer and art director specializing in branding, marketing collateral, and illustration.">
+<meta property="og:url" content="https://khalilblount.com/">
+<meta property="og:image" content="https://khalilblount.com/social-preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="Preview of Khalil Blount's portfolio home screen with project tiles for Cubbie's, Every Rep, Carolina Safety Supply and more.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Khalil Blount | Graphic Designer/Art Director">
+<meta name="twitter:description" content="Portfolio of Khalil Blount, a graphic designer and art director specializing in branding, marketing collateral, and illustration.">
+<meta name="twitter:image" content="https://khalilblount.com/social-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#1c1d21;--bg2:#26272c;--tile:#2f3036;--ink:#f2f3f5;--mute:#9a9ca5;--ring:#fff;--accent:#6f5da7;--purple:#6f5da7;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:inherit}
 html,body{height:100%;margin:0}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{background:radial-gradient(120% 90% at 50% 0%,var(--bg2),var(--bg));color:var(--ink);font-family:"Nunito","Segoe UI",system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;overflow:hidden}
+body{background:linear-gradient(180deg,rgba(111,93,167,.32) 0%,rgba(111,93,167,.13) 45%,rgba(111,93,167,0) 100%),var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;overflow:hidden}
 button,a{font:inherit;color:inherit}
 button{background:none;border:0;cursor:pointer;padding:0}
 :focus{outline:none}
@@ -18,19 +36,20 @@ header{display:flex;justify-content:space-between;align-items:center;padding:18p
 .profile{display:flex;align-items:center;gap:10px;text-decoration:none;border-radius:999px;padding:3px 14px 3px 3px;transition:background .2s}
 .profile:hover,.profile:focus{background:rgba(255,255,255,.1);box-shadow:0 0 0 2px var(--ring)}
 .avatar{object-fit:cover;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#e60012,#ff8a5c);display:grid;place-items:center;font-weight:800;border:2px solid #fff}
-.profile span.n{font-weight:700;font-size:.95rem}
+.ptext{display:flex;flex-direction:column;line-height:1.2}.profile span.n{font-weight:700;font-size:.95rem}.profile .sub{font-weight:300;font-size:.78rem;letter-spacing:.02em;color:var(--mute)}
 .status{display:flex;align-items:center;gap:12px;font-weight:700}
 #clock{font-size:1.25rem;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .status svg{width:22px;height:22px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
 #row{display:flex;gap:18px;overflow-x:auto;padding:34px 8vw;scroll-snap-type:x proximity;scrollbar-width:none}
 #row::-webkit-scrollbar{display:none}
-.tile{flex:0 0 auto;width:clamp(160px,min(36vw,48vh),380px);aspect-ratio:1;border-radius:16px;background:var(--tile);scroll-snap-align:center;position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s;text-align:left}
+.tile{flex:0 0 auto;width:clamp(160px,min(36vw,44vh),380px);aspect-ratio:1;border-radius:16px;background:var(--tile);scroll-snap-align:center;position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s;text-align:left}
 .tile.empty{opacity:.45;pointer-events:none;background:#2a2b30}
+.tile .alt{opacity:0;transition:opacity .35s ease}.tile:hover .alt,.tile:focus .alt{opacity:1}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tile .ph{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;font-weight:800;font-size:1.1rem;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.35)}
 .tile:hover,.tile:focus{transform:scale(1.07);box-shadow:0 0 0 4px var(--ring),0 0 28px rgba(255,255,255,.35);z-index:2}
-.cap{height:1.6em;text-align:center;font-weight:700;color:var(--ink);margin:0;transition:opacity .2s}
+.cap{min-height:1.6em;padding:0 16px;text-align:center;font-weight:700;color:var(--ink);margin:0;transition:opacity .2s}
 footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;gap:8px}
 .dock{display:flex;gap:18px;align-items:center;background:rgba(255,255,255,.07);border-radius:999px;padding:12px 26px;backdrop-filter:blur(8px)}
 .dk{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;text-decoration:none;background:var(--tile);transition:transform .18s,box-shadow .18s}
@@ -39,11 +58,11 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 .dk.lib{background:var(--accent)}
 #dl{height:1.4em;font-size:.9rem;font-weight:700;color:var(--mute)}
 .layer{position:fixed;inset:0;background:rgba(10,10,12,.78);backdrop-filter:blur(6px);display:none;z-index:10;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px));overflow:auto}
-.layer.on{display:grid;place-items:start center;animation:pop .18s ease-out}
+.layer.on{display:grid;grid-template-columns:minmax(0,1fr);place-items:start center;animation:pop .18s ease-out}
 @keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
-.panel{margin:auto;width:min(560px,100%);background:#2b2c32;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.cover{height:110px;background:#2f3036}.phead{display:flex;align-items:flex-end;gap:16px;padding:0 22px 4px}.pic{width:124px;height:124px;flex:none;object-fit:cover;border-radius:22px;border:4px solid #2b2c32;background:#2b2c32;margin-top:-62px;box-shadow:0 8px 24px rgba(0,0,0,.4)}.pic[hidden]{display:none}.phead h2{margin:0;font-size:1.45rem;line-height:1.15;padding:14px 0 4px}
-.body{padding:18px 22px 8px}
+.panel{margin:auto;width:min(1100px,100%);background:#2b2c32;border-radius:22px;overflow:clip;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.cover{height:110px;background:#2f3036}.phead{display:flex;align-items:flex-end;gap:16px;padding:0 32px 4px}.pic{width:124px;height:124px;flex:none;object-fit:cover;border-radius:22px;border:4px solid #2b2c32;background:#2b2c32;margin-top:-62px;box-shadow:0 8px 24px rgba(0,0,0,.4)}.pic[hidden]{display:none}.ptitle{padding:14px 0 4px}.phead h2{margin:0;font-size:1.45rem;line-height:1.15}.subtype{font-weight:300;font-size:.95rem;letter-spacing:.02em;color:var(--mute);margin-top:3px}.subtype:empty{display:none}.cap .capType{font-weight:300;color:var(--mute);font-size:.85em;margin-left:.7em}.cap .capType::before{content:"\00b7";margin-right:.7em}
+.body{padding:18px 32px 8px}.body p{max-width:78ch}
 .body p{margin:0 0 12px;line-height:1.5;color:#d7d8dd}
 .facts{display:grid;gap:8px;margin:0 0 16px}.facts div{display:flex;gap:14px}.facts dt{color:var(--mute);min-width:96px;font-weight:700}.facts dd{margin:0}.body h3{margin:0 0 8px;font-size:1.05rem}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
 .tags span{font-size:.8rem;background:rgba(255,255,255,.1);border-radius:999px;padding:3px 10px}
@@ -64,28 +83,89 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 #sImg{max-width:100%;max-height:calc(100vh - 150px);border-radius:14px;background:#000;cursor:pointer}
 .vbar{display:flex;gap:12px;align-items:center;font-weight:700}
 .vbar .back{min-width:48px}
-#intro{position:fixed;inset:0;z-index:100;background:var(--purple);display:grid;place-items:center;transition:opacity .7s ease}
+#intro{position:fixed;inset:0;z-index:100;background:linear-gradient(180deg,rgba(111,93,167,.32) 0%,rgba(111,93,167,.13) 45%,rgba(111,93,167,0) 100%),var(--bg);display:grid;place-items:center;transition:opacity .7s ease}
 #intro.out{opacity:0;pointer-events:none}
-.intro-logo{width:min(70vw,440px);aspect-ratio:1;-webkit-mask:url(images/logo.svg) center/contain no-repeat;mask:url(images/logo.svg) center/contain no-repeat;background:linear-gradient(105deg,#fff 0%,#fff 38%,#cfc6f5 50%,#fff 62%,#fff 100%);background-size:300% 100%;background-position:100% 0;opacity:0}
-#intro.go .intro-logo{animation:logoIn 1s ease-out forwards,shine 1.4s .55s ease-in-out forwards}
+.intro-id{display:flex;flex-direction:column;align-items:center;gap:22px;opacity:0}
+#intro.go .intro-id{animation:logoIn 1s ease-out forwards}
+.intro-mii{position:relative;width:min(44vw,230px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid #fff;box-shadow:0 0 0 8px rgba(255,255,255,.14),0 14px 40px rgba(0,0,0,.4);background:#d9d9d9}
+.intro-mii img{display:block;width:100%;height:100%;object-fit:cover}
+.intro-mii::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%)}
+#intro.go .intro-mii::after{animation:glint 1.2s .6s ease-in-out forwards}
+@keyframes glint{to{transform:translateX(120%)}}
+.intro-name{font-family:"Nunito","Segoe UI",system-ui,sans-serif;font-weight:900;font-size:clamp(1.7rem,6.4vw,2.6rem);letter-spacing:.01em;color:#fff;opacity:0;transform:translateY(8px)}
+#intro.go .intro-name{animation:nameIn .7s .55s ease-out forwards}
+@keyframes nameIn{to{opacity:1;transform:none}}
 @keyframes logoIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
-@keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
 .intro-prompt{position:absolute;left:0;right:0;bottom:calc(11vh + env(safe-area-inset-bottom,0px));text-align:center;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.85);animation:pulse 1.8s ease-in-out infinite;transition:opacity .25s}
 #intro.go .intro-prompt{opacity:0;animation:none}
 @keyframes pulse{50%{opacity:.35}}
+.shots{display:grid;gap:16px;margin:10px 0 26px}
+.shots.brick{display:flex;gap:16px}.shots.brick .col{flex:1;min-width:0;display:flex;flex-direction:column;gap:16px}
+.shot{display:block;width:100%;padding:0;border-radius:16px;overflow:hidden;background:#1c1d21;cursor:zoom-in;transition:transform .18s,box-shadow .18s}
+.shot img{display:block;width:100%;height:auto}
+.shot:hover,.shot:focus{box-shadow:0 0 0 4px #fff;transform:scale(1.006)}
+#pclose,#aclose{position:sticky;bottom:0}
+.panel.about{width:min(860px,100%)}
+.abline{border:0;height:2px;background:#fff;margin:26px 0}
+.absec{margin-bottom:26px}
+.absec h3{margin:0 0 14px;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase}
+.exp{display:grid;gap:16px}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:6px 18px;flex-wrap:wrap}
+.row .t{display:flex;flex-direction:column;gap:2px}
+.row .t span{color:var(--mute);font-weight:300}
+.row .d{font-weight:300;color:var(--mute);white-space:nowrap}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skill{background:#6f5da7;color:#fff;font-weight:700;font-size:.92rem;border-radius:14px;padding:11px 17px;box-shadow:0 6px 16px rgba(0,0,0,.28)}
+
+#contactLayer{z-index:15}
+.panel.contact{width:min(520px,100%)}
+.panel.contact .abhead{padding:30px 32px 18px}
+.clabel{font-weight:300;color:var(--mute)}
+.opt:hover .clabel,.opt:focus .clabel{color:#4a4b55}
+.abphotos{min-width:0;max-width:100%;display:flex;gap:14px;overflow-x:auto;margin:6px 32px 24px;padding-bottom:10px;scrollbar-width:thin;scroll-snap-type:x proximity}
+.abphotos[hidden]{display:none}
+.abphotos .shot{flex:0 0 auto;width:auto;height:min(52vw,260px);scroll-snap-align:start}
+.abphotos .shot img{height:100%;width:auto}
+.abhead{display:flex;flex-direction:column;align-items:center;gap:6px;padding:34px 32px 8px;text-align:center}
+.abpic{width:clamp(110px,24vw,160px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 0 0 6px rgba(255,255,255,.12),0 10px 30px rgba(0,0,0,.45);background:#d9d9d9;}
+.abpics{display:flex;justify-content:center;gap:18px;margin-bottom:8px}
+.abhead h2{margin:0;font-size:1.9rem;line-height:1.15}
+.ablinks{display:flex;justify-content:center;gap:14px;margin:14px 0 4px}
+.ablinks a,.ablinks button{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--tile);color:var(--ink);padding:0;transition:transform .18s,box-shadow .18s}
+.ablinks svg{width:23px;height:23px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ablinks a:hover,.ablinks a:focus,.ablinks button:hover,.ablinks button:focus{transform:scale(1.12);box-shadow:0 0 0 3px #fff}
+
+#pclose:not(:hover):not(:focus),#aclose:not(:hover):not(:focus){background:#2b2c32}
+.key{font-size:.72rem;letter-spacing:.06em;border:1.5px solid currentColor;border-radius:7px;padding:2px 9px;line-height:1.4}
+.c-ig svg{stroke:url(#igGrad)}.c-ig svg circle:last-child{fill:url(#igGrad);stroke:none}
+.c-li svg{stroke:#3d9bff}.c-mail svg{stroke:#27d3ae}
+.dk.c-ig,.ablinks .c-ig{background:rgba(255,94,138,.16)}
+.dk.c-li,.ablinks .c-li{background:rgba(61,155,255,.16)}
+.dk.c-mail,.ablinks .c-mail{background:rgba(39,211,174,.16)}
+.dk.c-ig svg,.dk.c-li svg,.dk.c-mail svg{stroke-width:2}
+.tabs{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:4px;padding:0 16px;flex-wrap:wrap}
+.tabs .key{color:var(--mute);border-color:rgba(255,255,255,.28)}
+.tabbtn{padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.08);color:#c4c6cf;font-weight:700;font-size:.92rem;transition:background .18s,box-shadow .18s,color .18s}
+.tabbtn.on{background:#6f5da7;color:#fff}
+.tabbtn:hover,.tabbtn:focus{box-shadow:0 0 0 3px #fff;color:#fff}
+@media (pointer:coarse){.tabs .key{display:none}}
+.vidwrap{display:flex;justify-content:center;background:#1c1d21;border-radius:16px;padding:18px}
+.vidwrap video{display:block;max-width:100%;max-height:min(78vh,720px);border-radius:12px;background:#000}
+.body p a{color:#b9a9ff;text-decoration:underline;text-underline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-@media (max-width:520px){header{padding:14px}.profile span.n{display:none}.dock{gap:12px;padding:10px 18px}}
+@media (max-width:520px){header{padding:14px}.ptext{display:none}.dock{gap:12px;padding:10px 18px}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ffb347"/><stop offset=".5" stop-color="#ff5e8a"/><stop offset="1" stop-color="#d6249f"/></linearGradient></defs></svg>
 <div id="intro" role="dialog" aria-label="Welcome">
-  <div class="intro-logo" role="img" aria-label="Blount Creative Co. logo"></div>
+  <div class="intro-id"><div class="intro-mii"><img src="images/mii.png" alt=""></div><div class="intro-name">Khalil Blount</div></div>
   <div class="intro-prompt" id="introPrompt"></div>
   <audio id="chime" src="assets/startup.mp3" preload="auto"></audio>
 </div>
 <header>
   <a class="profile" href="about.html" aria-label="About me">
-    <img class="avatar" src="images/mii.png" alt=""><span class="n">Khalil Blount</span>
+    <img class="avatar" src="images/mii.png" alt=""><span class="ptext"><span class="n">Khalil Blount</span><span class="sub">About me</span></span>
   </a>
   <div class="status">
     <span id="clock" aria-live="off"></span>
@@ -95,14 +175,16 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 </header>
 
 <main>
+  <div class="tabs" role="tablist" aria-label="Portfolio sections"><span class="key">Q</span><button class="tabbtn on" role="tab" aria-selected="true" data-tab="marketing">Art Direction</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="brand">Graphic/Brand Design</button><span class="key">E</span></div>
   <div id="row" role="list" aria-label="Projects"></div>
   <p class="cap" id="cap"></p>
 </main>
 
 <footer>
   <nav class="dock" aria-label="Links">
-    <a class="dk" href="https://www.instagram.com/blountcreativeco/" target="_blank" rel="noopener" data-l="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg></a>
-    <a class="dk" href="https://www.linkedin.com/in/khalil-blount/" target="_blank" rel="noopener" data-l="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.8v.1M12 16v-5.5M12 13c0-1.5 1-2.5 2.3-2.5S16.5 11.5 16.5 13v3"/></svg></a>
+    <a class="dk c-ig" href="https://www.instagram.com/blountcreativeco/" target="_blank" rel="noopener" data-l="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg></a>
+    <a class="dk c-li" href="https://www.linkedin.com/in/khalil-blount/" target="_blank" rel="noopener" data-l="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.8v.1M12 16v-5.5M12 13c0-1.5 1-2.5 2.3-2.5S16.5 11.5 16.5 13v3"/></svg></a>
+    <button class="dk c-mail" id="contactBtn" data-l="Contact" aria-label="Contact"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></button>
     <button class="dk lib" id="libBtn" data-l="Game Library" aria-label="Game Library"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="7" height="14" rx="1.5"/><rect x="12" y="5" width="4" height="14" rx="1"/><path d="M18.5 6.5l3 11.5"/></svg></button>
   </nav>
   <div id="dl"></div>
@@ -111,10 +193,38 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 <div class="layer" id="projLayer" role="dialog" aria-modal="true" aria-labelledby="pt">
   <div class="panel">
     <div class="cover" id="pc"></div>
-    <div class="phead"><img class="pic" id="pimg" alt="" hidden><h2 id="pt"></h2></div>
-    <div class="body"><p id="pd"></p><div class="tags" id="ptags"></div></div>
-    <a class="opt" id="pu" href="#" target="_blank" rel="noopener"><span>View project</span><span>&rsaquo;</span></a>
-    <button class="opt" id="pclose"><span>Back to home</span><span>B</span></button>
+    <div class="phead"><img class="pic" id="pimg" alt="" hidden><div class="ptitle"><h2 id="pt"></h2><div class="subtype" id="ptype"></div></div></div>
+    <div class="body"><p id="pd"></p><div class="tags" id="ptags"></div><div class="shots" id="pshots"></div></div>
+    <button class="opt" id="pclose"><span>Back to home</span><span class="key">DEL</span></button>
+  </div>
+</div>
+
+<div class="layer" id="aboutLayer" role="dialog" aria-modal="true" aria-label="About me">
+  <div class="panel about">
+    <div class="abhead">
+      <div class="abpics"><img class="abpic" src="images/mii.png" alt="Khalil's Mii avatar"><img class="abpic" src="images/about/me.jpg" alt="Khalil Blount"></div>
+      <h2>Khalil Blount</h2>
+      <div class="subtype">Graphic Designer/Art Director</div>
+      <div class="ablinks"><a class="c-ig" href="https://www.instagram.com/blountcreativeco/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg></a><a class="c-li" href="https://www.linkedin.com/in/khalil-blount/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.8v.1M12 16v-5.5M12 13c0-1.5 1-2.5 2.3-2.5S16.5 11.5 16.5 13v3"/></svg></a><button class="c-mail" id="aboutContact" title="Contact" aria-label="Contact"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></button></div>
+    </div>
+    <div class="body">
+<p>What’s up, y’all? If I’m not currently blowing my laptop's RAM to shreds by running Illustrator, Photoshop, and InDesign at the same time...</p><p>I’m probably nose-deep in the screen of my Nintendo Switch, perusing a comic book store's back issues of Teenage Mutant Ninja Turtles or Adventures of Superman, scavenging Marketplace for retro game consoles, or researching which NY Yankees baseball caps I do not currently own though I rarely watch a game.</p><p>I love design, which may surprise you after reading my education section, because I never actually studied it, as most people in the field have. But I have dreamt of it being my career since I was a child.</p><p>If you want to work with someone who can whip up cool designs, be your tag partner in Super Smash Bros., or break down the conflicting origin stories of Master Splinter, I’m definitely your guy.</p>
+<hr class="abline">
+<section class="absec"><h3>Experience</h3><div class="exp"><div class="row"><div class="t"><b>Graphic Design Intern</b><span>Sumner Group</span></div><div class="d">07/2026 – Present</div></div><div class="row"><div class="t"><b>Graphic Designer</b><span>Morgan Printers, Inc.</span></div><div class="d">03/2025 – 06/2026</div></div><div class="row"><div class="t"><b>Graphic Design Intern</b><span>Raleigh Firebirds (TBL)</span></div><div class="d">11/2025 – 05/2026</div></div><div class="row"><div class="t"><b>Graphic & Digital Marketing Intern</b><span>No Filter. Just Art.</span></div><div class="d">07/2025 – 01/2026</div></div><div class="row"><div class="t"><b>Graphic Design Team Member</b><span>1893 Brand Studio</span></div><div class="d">08/2024 – 01/2025</div></div><div class="row"><div class="t"><b>Freelance Brand Designer & Illustrator</b><span>Blount Creative Co.</span></div><div class="d">05/2024 – Present</div></div></div></section>
+<section class="absec"><h3>Education</h3><div class="exp"><div class="row"><div class="t"><b>The University of North Carolina at Chapel Hill</b><span>B.A. in Psychology, Minor in Studio Art | GPA: 3.473</span></div><div class="d">2021 – 2024</div></div></div></section>
+<section class="absec"><h3>Skills</h3><div class="skills"><span class="skill">Visual Identity Systems</span><span class="skill">Brand Guidelines</span><span class="skill">Logo Design</span><span class="skill">Art Direction</span><span class="skill">Social Media Content (Meta/TikTok)</span><span class="skill">Layout & Presentation Design</span><span class="skill">Illustrator</span><span class="skill">Photoshop</span><span class="skill">InDesign</span><span class="skill">Figma</span><span class="skill">Premiere Pro</span><span class="skill">After Effects</span><span class="skill">Motion Graphics</span><span class="skill">Digital/Vector Illustration</span><span class="skill">Packaging Design</span><span class="skill">Color Management (CMYK/Pantone)</span></div></section>
+    </div>
+    <div class="abphotos" id="abphotos" hidden></div>
+    <button class="opt" id="aclose"><span>Back to home</span><span class="key">DEL</span></button>
+  </div>
+</div>
+
+<div class="layer" id="contactLayer" role="dialog" aria-modal="true" aria-label="Contact">
+  <div class="panel contact">
+    <div class="abhead"><h2>Contact</h2></div>
+    <a class="opt" href="mailto:khalilmb1007@gmail.com"><span class="clabel">Email</span><span>khalilmb1007@gmail.com</span></a>
+    <a class="opt" href="tel:+12523500299"><span class="clabel">Phone</span><span>(252) 350-0299</span></a>
+    <button class="opt" id="cclose"><span>Back to home</span><span class="key">DEL</span></button>
   </div>
 </div>
 
@@ -135,15 +245,17 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 <script>
 /* ===== EDIT YOUR CONTENT HERE (max 10 projects) ===== */
 const PROJECTS=[
- {title:"Cubbie's: Since '85",desc:"",industry:"Restaurant Branding & Marketing Campaign",role:"Art Director",deliverables:"Visual Identity, Digital Ads, Out-of-Home Ads",challenge:["Cubbie’s has long been an ECU and Greenville staple for Southern comfort food, but a recent wave of modern burger joints threatened its hometown dominance. Falling behind the curve due to an outdated 1980s visual identity and a passive marketing strategy, the restaurant needed a modern intervention. I stepped in to spearhead the rebrand.", "First, I overhauled their visual identity… cleaned up the typography and modernized their mascot into a timeless brand asset ready for merchandise, signage, and packaging. Next, I launched the “New Bear in Town” marketing campaign. By cleverly hijacking famous food catchphrases from pop culture’s most iconic bears, the campaign confidently reminds locals and students alike that when it comes to comfort food, Cubbie the Bear still owns the block."],tags:[],url:"#",img:"images/cubbies/cover.jpg",slides:["images/cubbies/01-hero.jpg","images/cubbies/02-mascot.jpg","images/cubbies/03-logo-suite.jpg","images/cubbies/04-primary-logo.jpg","images/cubbies/05-apparel-mural.jpg","images/cubbies/06-billboard.jpg","images/cubbies/07-posters.jpg","images/cubbies/08-social-ads.jpg"],c1:"#bf1e2e",c2:"#7a0010"},
- {title:"Every Rep Basketball",desc:"",industry:"Athletic Branding & Apparel System",role:"Brand Designer, Strategist",deliverables:"Logo Suite, Social Media, Merchandise",challenge:["Every Rep launched with an ambitious dual mandate: establish an elite athletic training service and build a premium merchandise line to act as \"on-body promotion\". To stand out in a market oversaturated with generic basketball clichés, the brand needed a visual identity that felt elite, established, and fully scalable. I stepped in to develop the “Geometry of the Game,” moving away from standard sports tropes to lean directly into the structural language of basketball.", "By crafting custom, fluid typography that mimics the channels of a basketball and building a responsive logo family, I created an adaptable asset system engineered for everything from large-scale court graphics to embroidered jersey patches. The result is a distinct, professional visual identity that seamlessly unifies the brand experience for athletes across all tiers, from youth development to the pros."],tags:[],url:"#",img:"images/everyrep/cover.jpg",slides:["images/everyrep/01-cover.jpg", "images/everyrep/02-badge-web.jpg", "images/everyrep/03-colorway.jpg", "images/everyrep/04-monogram.jpg", "images/everyrep/05-jersey.jpg", "images/everyrep/06-court.jpg"],c1:"#f77f00",c2:"#e8571f"},
- {title:"Carolina Safety Supply",desc:"",industry:"Corporate Identity & Print Collateral",role:"Brand Design, Production Artist",deliverables:"Visual Identity, Typography, Corporate Collateral & Uniforms",challenge:["Founded by a retired Chief of Police, Carolina Safety Supply needed to aggressively enter the law enforcement and emergency gear market as a trusted authority. The mission was to translate the founder's deeply personal industry roots into an authoritative corporate identity that projected institutional strength and protection. I anchored the entire rebrand around “A Symbol of Protection,” refining a Celtic knot inspired by the founder's personal tattoo into a sharp, geometric vector mark encased in a defensive shield.", "Steering away from overly aggressive industry colors, I established a clean \"Safety Blue\" and Black corporate palette engineered specifically to capture lucrative government and B2B contracts. Deployed consistently across corporate collateral, presentation folders, and physical team apparel, the robust new identity firmly positions the company as a premier partner for high-level safety equipment."],tags:[],url:"#",img:"images/carolina/cover.jpg",slides:["images/carolina/01-primary.jpg", "images/carolina/02-marks.jpg", "images/carolina/03-sketch.jpg", "images/carolina/04-evolution.jpg", "images/carolina/05-team.jpg", "images/carolina/06-collateral.jpg"],c1:"#87d0f2",c2:"#04507a"},
- {title:"Baked by Love",desc:"",industry:"Visual Identity & Packaging Design",role:"Brand/Packaging Designer",deliverables:"Visual Identity, Social Media, Packaging & Stickers",challenge:["Baked By Love needed to transition from a cozy, home-based kitchen operation into a highly scalable retail and e-commerce brand. The core challenge lay in projecting professional polish for competitive shelf presence without losing the inviting warmth of a \"homemade\" aesthetic.", "To solve this, I designed a “Retail-Ready System” focused on appetite-triggering visuals, blending a bold sans-serif with a warm, custom script for the word \"Love\". I anchored the visual identity with a circular badge format engineered to double as a cost-effective packaging sticker seal, paired with a vibrant \"Perfect Pink\" and \"Cookie Dough\" brown palette and a playful pattern library of bitten cookies and hearts. Rolled out seamlessly across custom boxes, sticker labels, and social templates, this polished identity beautifully bridges digital engagement with physical unboxing to position the bakery for massive storefront growth."],tags:[],url:"#",img:"images/bakedbylove/cover.jpg",slides:["images/bakedbylove/01-cover.jpg", "images/bakedbylove/02-pattern.jpg", "images/bakedbylove/03-evolution.jpg", "images/bakedbylove/04-wordmark.jpg", "images/bakedbylove/05-colors.jpg", "images/bakedbylove/06-web.jpg", "images/bakedbylove/07-social-boxes.jpg"],c1:"#ff57a2",c2:"#7a2cbf"},
- {title:"Ducks Unlimited: Legacy Gala 2026",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#00b86b",c2:"#065a3a"},
- {title:"Sport/Gameday",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#6f5bff",c2:"#2a1f8f"},
- {title:"Digital Illustration",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#ff8a5c",c2:"#c2362b"},
- {title:"Brand Book",desc:"Project details coming soon.",tags:[],url:"#",img:"",c1:"#0b7a75",c2:"#0a3d4a"}
+ {title:"Cubbie's: Since '85",tab:"marketing",desc:"",type:"Restaurant Branding & Marketing Campaign",role:"Art Director",deliverables:"Visual Identity, Digital Ads, Out-of-Home Ads",challenge:["Cubbie’s has long been an ECU and Greenville staple for Southern comfort food, but a recent wave of modern burger joints threatened its hometown dominance. Falling behind the curve due to an outdated 1980s visual identity and a passive marketing strategy, the restaurant needed a modern intervention. I stepped in to spearhead the rebrand.", "First, I overhauled their visual identity… cleaned up the typography and modernized their mascot into a timeless brand asset ready for merchandise, signage, and packaging. Next, I launched the “New Bear in Town” marketing campaign. By cleverly hijacking famous food catchphrases from pop culture’s most iconic bears, the campaign confidently reminds locals and students alike that when it comes to comfort food, Cubbie the Bear still owns the block."],tags:[],url:"#",img:"images/cubbies/cover.jpg",hover:"images/cubbies/hover.jpg",hoverPos:"50% 50%",slides:["images/cubbies/01-hero.jpg","images/cubbies/02-mascot.jpg","images/cubbies/03-logo-suite.jpg","images/cubbies/04-primary-logo.jpg","images/cubbies/05-apparel-mural.jpg","images/cubbies/06-billboard.jpg","images/cubbies/07-posters.jpg","images/cubbies/08-social-ads.jpg"],c1:"#bf1e2e",c2:"#7a0010"},
+ {title:"Dollar Tree: Holiday Magic",tab:"marketing",desc:"",type:"Creative Advertising Campaign",team:"Khalil Blount & Ella Bartosik",deliverables:"Social Media, Out-of-Home, Video Spots",heading:"Overview",challenge:["Dollar Tree is known for being affordable, but during the holidays few people think of it as a place to shop for gifts, even though it’s full of them. Meanwhile, nearly half of Gen Z (47%) and millennial (43%) shoppers plan to buy gifts for themselves this season (<a href=\"https://www2.deloitte.com/us/en/insights/industry/retail-distribution/holiday-retail-sales-consumer-survey.html\" target=\"_blank\" rel=\"noopener\">Deloitte</a>).", "The idea: Blame it on the holiday Magic! Instead of lecturing about budgets, the campaign leans into sarcasm and relatability: if you’re already treating yourself, why not do it where you can grab everyone’s gifts too? Treating everyone, yourself included, for just a few dollars is the real holiday magic."],tags:[],url:"#",img:"images/dollartree/cover.jpg",hover:"images/dollartree/hover.jpg",hoverPos:"50% 50%",video:{src:"assets/dollar-tree-spot.mp4",poster:"images/dollartree/spot-poster.jpg",after:5},slides:["images/dollartree/01-cover.jpg", "images/dollartree/02-hero.jpg", "images/dollartree/03-subway.jpg", "images/dollartree/04-poster-wall.jpg", "images/dollartree/05-bus-shelter.jpg", "images/dollartree/06-social.jpg", "images/dollartree/07-apple-pay.jpg", "images/dollartree/08-elves.jpg"],c1:"#a51c20",c2:"#6d0f13"},
+ {title:"AMC Theatres: We Miss You…",tab:"marketing",desc:"",type:"Brand Activation Campaign",team:"Khalil Blount & Ella Bartosik",deliverables:"Brand Activation, Out-of-Home, Social Media, Video Spot",heading:"Overview",challenge:["People have forgotten what the real cinema experience is. It’s not just the movie, it’s the shared laughter, gasps, and the way theaters amplify every emotion. Movies aren’t just watched. They’re felt.", "The activation: three products available ONLY IN THEATERS, the Spill-Proof Bucket Lid, Tear Catcher Goggles, and Laugh Leveler. Each is designed to enhance the movie experience and pair with the films that bring out your emotions, whether it’s a tearjerker, a comedy, or a thriller, so everyone can feel in full without holding back."],tags:[],url:"#",img:"images/amc/cover.jpg",hover:"images/amc/hover.jpg",hoverPos:"50% 50%",video:{src:"assets/amc-we-miss-you.mp4",poster:"images/amc/spot-poster.jpg",after:3},slides:["images/amc/01-we-miss-you.jpg", "images/amc/06-marquee-1.jpg", "images/amc/07-marquee-2.jpg", "images/amc/08-marquee-3.jpg", "images/amc/02-feel-in-full.jpg", "images/amc/03-bucket-lid.jpg", "images/amc/04-tear-catcher.jpg", "images/amc/05-laugh-leveler.jpg", "images/amc/09-social.jpg", "images/amc/10-team.jpg"],c1:"#c8102e",c2:"#5a0a14"},
+ {title:"Every Rep Basketball",tab:"brand",desc:"",type:"Athletic Branding & Apparel System",role:"Brand Designer, Strategist",deliverables:"Logo Suite, Social Media, Merchandise",challenge:["Every Rep launched with an ambitious dual mandate: establish an elite athletic training service and build a premium merchandise line to act as \"on-body promotion\". To stand out in a market oversaturated with generic basketball clichés, the brand needed a visual identity that felt elite, established, and fully scalable. I stepped in to develop the “Geometry of the Game,” moving away from standard sports tropes to lean directly into the structural language of basketball.", "By crafting custom, fluid typography that mimics the channels of a basketball and building a responsive logo family, I created an adaptable asset system engineered for everything from large-scale court graphics to embroidered jersey patches. The result is a distinct, professional visual identity that seamlessly unifies the brand experience for athletes across all tiers, from youth development to the pros."],tags:[],url:"#",img:"images/everyrep/cover.jpg",hover:"images/everyrep/05-jersey.jpg",hoverPos:"50% 50%",slides:["images/everyrep/01-cover.jpg", "images/everyrep/02-badge-web.jpg", "images/everyrep/03-colorway.jpg", "images/everyrep/04-monogram.jpg", "images/everyrep/05-jersey.jpg", "images/everyrep/06-court.jpg"],c1:"#f77f00",c2:"#e8571f"},
+ {title:"Carolina Safety Supply",tab:"brand",desc:"",type:"Corporate Identity & Print Collateral",role:"Brand Design, Production Artist",deliverables:"Visual Identity, Typography, Corporate Collateral & Uniforms",challenge:["Founded by a retired Chief of Police, Carolina Safety Supply needed to aggressively enter the law enforcement and emergency gear market as a trusted authority. The mission was to translate the founder's deeply personal industry roots into an authoritative corporate identity that projected institutional strength and protection. I anchored the entire rebrand around “A Symbol of Protection,” refining a Celtic knot inspired by the founder's personal tattoo into a sharp, geometric vector mark encased in a defensive shield.", "Steering away from overly aggressive industry colors, I established a clean \"Safety Blue\" and Black corporate palette engineered specifically to capture lucrative government and B2B contracts. Deployed consistently across corporate collateral, presentation folders, and physical team apparel, the robust new identity firmly positions the company as a premier partner for high-level safety equipment."],tags:[],url:"#",img:"images/carolina/cover.jpg",hover:"images/carolina/hover.jpg",hoverPos:"50% 50%",slides:["images/carolina/01-primary.jpg", "images/carolina/02-marks.jpg", "images/carolina/03-sketch.jpg", "images/carolina/04-evolution.jpg", "images/carolina/05-team.jpg", "images/carolina/06-collateral.jpg"],c1:"#87d0f2",c2:"#04507a"},
+ {title:"Baked by Love",tab:"brand",desc:"",type:"Visual Identity & Packaging Design",role:"Brand/Packaging Designer",deliverables:"Visual Identity, Social Media, Packaging & Stickers",challenge:["Baked By Love needed to transition from a cozy, home-based kitchen operation into a highly scalable retail and e-commerce brand. The core challenge lay in projecting professional polish for competitive shelf presence without losing the inviting warmth of a \"homemade\" aesthetic.", "To solve this, I designed a “Retail-Ready System” focused on appetite-triggering visuals, blending a bold sans-serif with a warm, custom script for the word \"Love\". I anchored the visual identity with a circular badge format engineered to double as a cost-effective packaging sticker seal, paired with a vibrant \"Perfect Pink\" and \"Cookie Dough\" brown palette and a playful pattern library of bitten cookies and hearts. Rolled out seamlessly across custom boxes, sticker labels, and social templates, this polished identity beautifully bridges digital engagement with physical unboxing to position the bakery for massive storefront growth."],tags:[],url:"#",img:"images/bakedbylove/cover.jpg",hover:"images/bakedbylove/hover.jpg",hoverPos:"50% 50%",slides:["images/bakedbylove/01-cover.jpg", "images/bakedbylove/02-pattern.jpg", "images/bakedbylove/03-evolution.jpg", "images/bakedbylove/04-wordmark.jpg", "images/bakedbylove/05-colors.jpg", "images/bakedbylove/06-web.jpg", "images/bakedbylove/07-social-boxes.jpg"],c1:"#ff57a2",c2:"#7a2cbf"},
+ {title:"Family Legacy Financial Solutions",tab:"brand",desc:"",type:"Social Media & Print Marketing Campaign",deliverables:"Social Media Ads, Print Collateral",heading:"Overview",challenge:["A lead-generation campaign for Family Legacy Financial Solutions, a wealth management firm, aimed at tech professionals with stock options. Four social ads, from illustrated to photographic, speak directly to the pain point of overpaying in taxes and drive to a free guide.", "The guide and a services brochure carry the same green, shield-led identity into print, so every touchpoint feels like one brand."],layout:"brick",ratios:[1.0, 0.9042, 1.0, 1.0, 0.6667, 0.6667],tags:[],url:"#",img:"images/familylegacy/cover.jpg",hover:"images/familylegacy/hover.jpg",hoverPos:"50% 50%",slides:["images/familylegacy/01-stock-options-taxes.jpg", "images/familylegacy/02-unlock-secrets.jpg", "images/familylegacy/03-master-stock-options.jpg", "images/familylegacy/04-maximize-minimize.jpg", "images/familylegacy/05-guide.jpg", "images/familylegacy/06-brochure.jpg"],c1:"#2b3a2f",c2:"#14201a"},
+ {title:"Sport/Gameday",tab:"brand",desc:"",type:"Team Graphics • Player Posters",heading:"Overview",challenge:["Game day lives on screens and in arenas, and these graphics are built for both. This selection of team graphics and player posters was created for digital channels, sports media, and live gameday productions: signing announcements, matchup promos, senior banners, and athlete spotlights, all tuned to each team’s colors and energy. Every piece is designed to stop the scroll, put the athlete front and center, and make game night feel like an event."],layout:"brick",ratios:[0.6682, 1.2945, 1.6664, 1.489, 1.4819, 1.4819, 1.4876, 1.4876, 1.2308, 1.2495, 1.2483, 1.2315, 1.2315, 1.2315, 1.2315],tags:[],url:"#",img:"images/sport/cover.jpg",hover:"images/sport/hover.jpg",hoverPos:"50% 50%",slides:["images/sport/01-chargers-jv.jpg", "images/sport/02-caleb-wilson.jpg", "images/sport/03-softball-banner.jpg", "images/sport/04-myles-joy.jpg", "images/sport/05-cash-easley.jpg", "images/sport/06-braxton-pegram.jpg", "images/sport/07-bucks-senior.jpg", "images/sport/08-laura-laverde.jpg", "images/sport/09-fairplay-select.jpg", "images/sport/10-unc-committed.jpg", "images/sport/11-kayla-committed.jpg", "images/sport/12-firebirds-college-day.jpg", "images/sport/13-firebirds-health.jpg", "images/sport/14-firebirds-youth.jpg", "images/sport/15-firebirds-tournament.jpg"],c1:"#6f5bff",c2:"#2a1f8f"},
+ {title:"Brand Book",tab:"brand",desc:"",type:"Bespoke Logo • Brand Identity",heading:"Overview",challenge:["A growing library of custom logos and brand marks, each built from scratch to give a business something worth remembering. Across home services, food and hospitality, sports and education, media, retail, and events, every identity starts with the client’s personality and audience, whether that calls for a hand-lettered script, a bold mascot, or a clean, confident wordmark. Each mark is built to hold up everywhere a brand lives, from signage and uniforms to packaging and screens. The goal never changes: clear, ownable branding that works as hard as the business behind it."],layout:"brick",ratios:[0.7333, 0.6411, 0.7367, 0.4878, 1.0, 0.3978, 0.9733, 1.0, 0.4189, 0.6922, 0.4633, 0.3956, 0.9933, 0.91, 0.4889, 1.4033, 1.28, 0.5722, 1.1611, 0.6933],tags:[],url:"#",img:"images/brandbook/cover.jpg",hover:"images/brandbook/hover.jpg",hoverPos:"50% 50%",slides:["images/brandbook/logo-01.jpg", "images/brandbook/logo-02.jpg", "images/brandbook/logo-03.jpg", "images/brandbook/logo-04.jpg", "images/brandbook/logo-05.jpg", "images/brandbook/logo-06.jpg", "images/brandbook/logo-07.jpg", "images/brandbook/logo-08.jpg", "images/brandbook/logo-09.jpg", "images/brandbook/logo-10.jpg", "images/brandbook/logo-11.jpg", "images/brandbook/logo-12.jpg", "images/brandbook/logo-13.jpg", "images/brandbook/logo-14.jpg", "images/brandbook/logo-15.jpg", "images/brandbook/logo-16.jpg", "images/brandbook/logo-17.jpg", "images/brandbook/logo-18.jpg", "images/brandbook/logo-19.jpg", "images/brandbook/logo-20.jpg"],c1:"#0b7a75",c2:"#0a3d4a"}
 ];
+const ABOUT_PHOTOS=["images/about/photo-01.jpg", "images/about/photo-02.jpg", "images/about/photo-03.jpg", "images/about/photo-04.jpg", "images/about/photo-05.jpg", "images/about/photo-06.jpg", "images/about/photo-07.jpg", "images/about/photo-08.jpg", "images/about/photo-09.jpg", "images/about/photo-10.jpg", "images/about/photo-11.jpg", "images/about/photo-12.jpg", "images/about/photo-13.jpg", "images/about/photo-14.jpg"];
 const GAMES=[
  {"title": "The Legend of Zelda: Tears of the Kingdom", "platform": "Switch 2", "time": "72 hrs played", "last": "Last played Tue 9/29", "img": "images/games/zelda.jpg", "c1": "#00a0e9", "c2": "#04507a"},
  {"title": "Yoshi's Island", "platform": "GBA", "time": "9 hrs played", "last": "Last played yesterday", "img": "images/games/yoshi.jpg", "c1": "#00b86b", "c2": "#065a3a"},
@@ -155,37 +267,57 @@ const $=s=>document.querySelector(s),row=$("#row"),cap=$("#cap");
 const bg=o=>o.img?`background-image:url('${o.img}')`:`background-image:linear-gradient(135deg,${o.c1},${o.c2})`;
 let opener=null;
 
-PROJECTS.slice(0,10).forEach((p,i)=>{
-  const b=document.createElement("button");b.className="tile";b.setAttribute("role","listitem");
-  b.dataset.i=i;b.setAttribute("aria-label",p.title);
-  b.innerHTML=p.img?`<img src="${p.img}" alt=""><span class="ph"></span>`:`<span class="ph" style="${bg(p)}">${p.title}</span>`;
-  b.onfocus=()=>{cap.textContent=p.title;b.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})};
-  b.onmouseenter=()=>b.focus({preventScroll:true});
-  b.onclick=()=>openProj(p,b);
-  row.appendChild(b);
-});
-for(let i=PROJECTS.length;i<10;i++){const e=document.createElement("div");e.className="tile empty";e.setAttribute("aria-hidden","true");row.appendChild(e)}
+let curTab="marketing";
+const setCap=p=>{cap.textContent=p.title;if(p.type){const s=document.createElement("span");s.className="capType";s.textContent=p.type;cap.appendChild(s)}};
+function renderTab(tab){
+  curTab=tab;row.innerHTML="";
+  const list=PROJECTS.filter(p=>p.tab===tab).slice(0,10);
+  list.forEach((p,i)=>{
+    const b=document.createElement("button");b.className="tile";b.setAttribute("role","listitem");
+    b.dataset.i=i;b.setAttribute("aria-label",p.title);
+    b.innerHTML=p.img?`<img src="${p.img}" alt="">${p.hover?`<img class="alt" src="${p.hover}" alt="" style="object-position:${p.hoverPos||"50% 50%"}">`:""}<span class="ph"></span>`:`<span class="ph" style="${bg(p)}">${p.title}</span>`;
+    b.onfocus=()=>{setCap(p);b.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})};
+    b.onmouseenter=()=>b.focus({preventScroll:true});
+    b.onclick=()=>openProj(p,b);
+    row.appendChild(b);
+  });
+  for(let i=list.length;i<10;i++){const e=document.createElement("div");e.className="tile empty";e.setAttribute("aria-hidden","true");row.appendChild(e)}
+  row.scrollLeft=0;
+  document.querySelectorAll(".tabbtn").forEach(b=>{const on=b.dataset.tab===tab;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});
+  if(list[0])setCap(list[0]);else cap.textContent="";
+}
+document.querySelectorAll(".tabbtn").forEach(b=>b.onclick=()=>renderTab(b.dataset.tab));
+renderTab("marketing");
 
 row.addEventListener("wheel",e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){row.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
 
-function openLayer(l,from){opener=from;l.classList.add("on");(l.querySelector(".opt,.back")).focus()}
+function openLayer(l,from){opener=from;l.classList.add("on");(l.querySelector(".opt,.back")).focus({preventScroll:true})}
 function closeLayers(){document.querySelectorAll(".layer.on").forEach(l=>l.classList.remove("on"));if(opener)opener.focus();opener=null}
 function openProj(p,from){
-  $("#pt").textContent=p.title;$("#pd").innerHTML=(p.industry?`<dl class="facts"><div><dt>Industry</dt><dd>${p.industry}</dd></div><div><dt>Role</dt><dd>${p.role}</dd></div><div><dt>Deliverables</dt><dd>${p.deliverables}</dd></div></dl>`:"")+(p.challenge?`<h3>The Challenge</h3>`+p.challenge.map(t=>`<p>${t}</p>`).join(""):`<p>${p.desc}</p>`);
+  $("#pt").textContent=p.title;$("#ptype").textContent=p.type||"";$("#pd").innerHTML=(()=>{const r=[["Industry",p.industry],["Role",p.role],["Team",p.team],["Deliverables",p.deliverables]].filter(x=>x[1]);return r.length?`<dl class="facts">`+r.map(x=>`<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join("")+"</dl>":""})()+(p.challenge?`<h3>${p.heading||"The Challenge"}</h3>`+p.challenge.map(t=>`<p>${t}</p>`).join(""):`<p>${p.desc}</p>`);
   $("#pc").style.background=p.c1;{const im=$("#pimg");im.hidden=!p.img;if(p.img)im.src=p.img}
   $("#ptags").innerHTML=p.tags.map(t=>`<span>${t}</span>`).join("");
-  $("#pu").href=p.slides?"#":p.url;$("#pu").onclick=p.slides?e=>{e.preventDefault();openSlides(p)}:null;openLayer($("#projLayer"),from);
+  cur=p;{const sh=i=>`<button class="shot" data-i="${i}" aria-label="Open image ${i+1} of ${p.slides.length}"><img src="${p.slides[i]}" alt="" loading="lazy"></button>`;const box=$("#pshots"),n=(p.slides||[]).length;
+    if(p.layout==="brick"&&p.ratios){box.className="shots brick";const cols=[[],[]],h=[0,0];for(let i=0;i<n;i++){const c=h[0]<=h[1]?0:1;cols[c].push(sh(i));h[c]+=p.ratios[i]}box.innerHTML=cols.map(c=>`<div class="col">${c.join("")}</div>`).join("")}
+    else{box.className="shots";const vid=v=>`<div class="vidwrap"><video controls playsinline preload="metadata" poster="${v.poster||""}" src="${v.src}"></video></div>`;box.innerHTML=Array.from({length:n},(_,i)=>sh(i)+(p.video&&p.video.after===i?vid(p.video):"")).join("")}}lastShot=null;$("#projLayer").scrollTop=0;openLayer($("#projLayer"),from);
 }
-let slides=[],si=0,tx=0;
+let slides=[],si=0,tx=0,cur=null,lastShot=null;
 function showSlide(){$("#sImg").src=slides[si];$("#sImg").alt="Slide "+(si+1)+" of "+slides.length;$("#sCount").textContent=(si+1)+" / "+slides.length}
 function step(d){si=(si+d+slides.length)%slides.length;showSlide()}
-function openSlides(p){slides=p.slides;si=0;showSlide();$("#slideLayer").classList.add("on");$("#sNext").focus()}
-function closeSlides(){$("#slideLayer").classList.remove("on");$("#pu").focus()}
+function openSlides(p,i=0){slides=p.slides;si=i;showSlide();$("#slideLayer").classList.add("on");$("#sNext").focus()}
+function closeSlides(){$("#slideLayer").classList.remove("on");(lastShot||$("#pclose")).focus()}
+$("#pshots").addEventListener("click",e=>{const b=e.target.closest("button.shot");if(b&&cur){lastShot=b;openSlides(cur,+b.dataset.i)}});
 $("#sPrev").onclick=()=>step(-1);$("#sNext").onclick=()=>step(1);$("#sClose").onclick=closeSlides;$("#sImg").onclick=()=>step(1);
 $("#sImg").addEventListener("touchstart",e=>{tx=e.changedTouches[0].clientX},{passive:true});
 $("#sImg").addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)step(dx<0?1:-1)});
-$("#pclose").onclick=closeLayers;$("#lclose").onclick=closeLayers;
-document.querySelectorAll(".layer").forEach(l=>l.addEventListener("click",e=>{if(e.target===l)l.id==="slideLayer"?closeSlides():closeLayers()}));
+$("#pclose").onclick=closeLayers;$("#aclose").onclick=closeLayers;
+let cFrom=null;
+function openContact(from){cFrom=from;const l=$("#contactLayer");l.classList.add("on");l.scrollTop=0;l.querySelector(".opt").focus({preventScroll:true})}
+function closeContact(){$("#contactLayer").classList.remove("on");if(cFrom)cFrom.focus();cFrom=null}
+$("#contactBtn").onclick=e=>openContact(e.currentTarget);$("#aboutContact").onclick=e=>openContact(e.currentTarget);$("#cclose").onclick=closeContact;
+$(".profile").addEventListener("click",e=>{e.preventDefault();$("#aboutLayer").scrollTop=0;openLayer($("#aboutLayer"),e.currentTarget)});
+{const ph=ABOUT_PHOTOS,box=$("#abphotos");if(ph.length){box.hidden=false;box.innerHTML=ph.map((s,i)=>`<button class="shot" data-i="${i}" aria-label="Open photo ${i+1} of ${ph.length}"><img src="${s}" alt="" loading="lazy"></button>`).join("");box.addEventListener("click",e=>{const b=e.target.closest("button.shot");if(b){lastShot=b;openSlides({slides:ph},+b.dataset.i)}});box.addEventListener("wheel",e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){box.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false})}}$("#lclose").onclick=closeLayers;
+document.querySelectorAll(".layer").forEach(l=>l.addEventListener("click",e=>{if(e.target===l)l.id==="slideLayer"?closeSlides():l.id==="contactLayer"?closeContact():closeLayers()}));
 
 $("#games").innerHTML=GAMES.map(g=>`<div class="game"><div class="art" style="${bg(g)}" role="img" aria-label="${g.title}">${g.img?"":g.title}</div><div class="meta"><b>${g.title}</b>${g.platform}<br>${[g.time,g.last].filter(Boolean).join(" &middot; ")}</div></div>`).join("");
 $("#libBtn").onclick=e=>openLayer($("#libLayer"),e.currentTarget);
@@ -198,19 +330,21 @@ document.querySelectorAll(".dk").forEach(d=>{
 /* Remote-style controls: arrows move, Enter selects, Esc goes back */
 document.addEventListener("keydown",e=>{
   if($("#slideLayer").classList.contains("on")){
-    if(e.key==="Escape"||e.key==="Backspace"){closeSlides();e.preventDefault()}
+    if(e.key==="Escape"||(e.key==="Backspace"||e.key==="Delete")){closeSlides();e.preventDefault()}
     else if(e.key==="ArrowRight"){step(1);e.preventDefault()}
     else if(e.key==="ArrowLeft"){step(-1);e.preventDefault()}
     return}
-  if(e.key==="Escape"||e.key==="Backspace"&&document.querySelector(".layer.on")){closeLayers();return}
+  if($("#contactLayer").classList.contains("on")){if(e.key==="Escape"||e.key==="Backspace"||e.key==="Delete"){closeContact();e.preventDefault()}return}
+  if(e.key==="Escape"||(e.key==="Backspace"||e.key==="Delete")&&document.querySelector(".layer.on")){closeLayers();return}
   if(document.querySelector(".layer.on"))return;
-  const tiles=[...row.querySelectorAll("button.tile")],dock=[...document.querySelectorAll(".dk")],a=document.activeElement;
-  const inRow=tiles.includes(a),inDock=dock.includes(a);
+  if(!e.ctrlKey&&!e.metaKey&&!e.altKey&&/^[qe\[\]]$/i.test(e.key)){const order=["marketing","brand"],i=order.indexOf(curTab),d=/^[q\[]$/i.test(e.key)?-1:1;renderTab(order[Math.min(order.length-1,Math.max(0,i+d))]);e.preventDefault();return}
+  const pills=[...document.querySelectorAll(".tabbtn")],tiles=[...row.querySelectorAll("button.tile")],dock=[...document.querySelectorAll(".dk")],a=document.activeElement;
+  const inP=pills.includes(a),inRow=tiles.includes(a),inDock=dock.includes(a);
   if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
-    const g=inDock?dock:tiles,i=g.indexOf(a),d=e.key==="ArrowRight"?1:-1;
+    const g=inDock?dock:inP?pills:tiles,i=g.indexOf(a),d=e.key==="ArrowRight"?1:-1;
     (g[i<0?0:Math.min(g.length-1,Math.max(0,i+d))]).focus();e.preventDefault();
-  }else if(e.key==="ArrowDown"&&!inDock){dock[1].focus();e.preventDefault()}
-  else if(e.key==="ArrowUp"&&inDock){(tiles[0]||a).focus();e.preventDefault()}
+  }else if(e.key==="ArrowDown"){if(inP)(tiles[0]||a).focus();else if(!inDock)dock[1].focus();e.preventDefault()}
+  else if(e.key==="ArrowUp"){if(inDock)(tiles[0]||a).focus();else if(inRow)(pills.find(b=>b.classList.contains("on"))||pills[0]).focus();e.preventDefault()}
 });
 (row.querySelector("button.tile")||{focus(){}}).focus({preventScroll:true});
 
