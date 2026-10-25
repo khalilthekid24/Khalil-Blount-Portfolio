@@ -135,6 +135,30 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
 .ablinks svg{width:23px;height:23px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .ablinks a:hover,.ablinks a:focus,.ablinks button:hover,.ablinks button:focus{transform:scale(1.12);box-shadow:0 0 0 3px #fff}
 
+
+.dk.c-star{background:rgba(255,197,49,.16);position:relative}
+.c-star svg{stroke:#ffc531;stroke-width:2;fill:rgba(255,197,49,.24)}
+.dk.c-star.bounce{animation:dockBounce 2.6s 1s ease-in-out infinite,goldGlow 2.6s 1s ease-in-out infinite}
+.dk.c-star.bounce:hover,.dk.c-star.bounce:focus{animation:none}
+@keyframes dockBounce{0%,46%,100%{transform:translateY(0)}8%{transform:translateY(-26px);animation-timing-function:cubic-bezier(.55,0,1,.45)}16%{transform:translateY(0);animation-timing-function:cubic-bezier(0,.55,.45,1)}23%{transform:translateY(-13px);animation-timing-function:cubic-bezier(.55,0,1,.45)}30%{transform:translateY(0)}36%{transform:translateY(-4px)}41%{transform:translateY(0)}}
+@keyframes goldGlow{0%,46%,100%{box-shadow:0 0 0 0 rgba(255,197,49,0)}10%{box-shadow:0 0 0 5px rgba(255,197,49,.35),0 0 24px rgba(255,197,49,.55)}30%{box-shadow:0 0 0 0 rgba(255,197,49,0)}}
+#dl.hint{color:#ffc531}
+#comicLayer{z-index:18;background:rgba(6,6,8,.94)}
+.cbook{margin:auto;width:100%;display:flex;flex-direction:column;align-items:center;gap:14px}
+.cstage{perspective:2400px;width:calc(var(--pw)*2);height:var(--ph);max-width:100%;position:relative;cursor:pointer;touch-action:pan-y}
+.cstage.single{width:var(--pw)}
+.cbk{position:absolute;inset:0;transition:transform .7s cubic-bezier(.4,.1,.2,1);transform-style:preserve-3d}
+.cleaf{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.45,.05,.25,1)}
+.cleaf.fl{transform:rotateY(-180deg)}
+.cface{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.cface.bk{transform:rotateY(180deg)}
+.cface img{display:block;width:100%;height:100%;object-fit:cover}
+.cface::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(0,0,0,.28),rgba(0,0,0,0) 9%)}
+.cface.bk::after{background:linear-gradient(to left,rgba(0,0,0,.28),rgba(0,0,0,0) 9%)}
+.csingle{position:absolute;inset:0;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.csingle img{display:block;width:100%;height:100%;object-fit:cover}
+#cCount{min-width:7.5em;text-align:center}
+@media(max-width:760px){.cbook .vbar{gap:8px;flex-wrap:wrap;justify-content:center;padding:0 10px}#cCount{min-width:4.5em}.cbook .back{padding:9px 12px;font-size:.85rem}}
 #pclose:not(:hover):not(:focus),#aclose:not(:hover):not(:focus){background:#2b2c32}
 .key{font-size:.72rem;letter-spacing:.06em;border:1.5px solid currentColor;border-radius:7px;padding:2px 9px;line-height:1.4}
 .c-ig svg{stroke:url(#igGrad)}.c-ig svg circle:last-child{fill:url(#igGrad);stroke:none}
@@ -185,6 +209,7 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
     <a class="dk c-ig" href="https://www.instagram.com/blountcreativeco/" target="_blank" rel="noopener" data-l="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg></a>
     <a class="dk c-li" href="https://www.linkedin.com/in/khalil-blount/" target="_blank" rel="noopener" data-l="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.8v.1M12 16v-5.5M12 13c0-1.5 1-2.5 2.3-2.5S16.5 11.5 16.5 13v3"/></svg></a>
     <button class="dk c-mail" id="contactBtn" data-l="Contact" aria-label="Contact"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></button>
+    <button class="dk c-star bounce" id="comicBtn" data-l="Portfolio Comic" aria-label="Open the portfolio comic"><svg viewBox="0 0 24 24" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.5l6-.8z"/></svg></button>
     <button class="dk lib" id="libBtn" data-l="Game Library" aria-label="Game Library"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="7" height="14" rx="1.5"/><rect x="12" y="5" width="4" height="14" rx="1"/><path d="M18.5 6.5l3 11.5"/></svg></button>
   </nav>
   <div id="dl"></div>
@@ -235,6 +260,13 @@ footer{padding:0 0 22px;display:flex;flex-direction:column;align-items:center;ga
   </div>
 </div>
 
+<div class="layer" id="comicLayer" role="dialog" aria-modal="true" aria-label="Portfolio comic">
+  <div class="cbook">
+    <div class="cstage" id="cstage"><div class="cbk" id="cbk"></div></div>
+    <div class="vbar"><button class="back" id="cBack">Back to home</button><button class="back" id="cPrev" aria-label="Previous page">&lsaquo;</button><span id="cCount"></span><button class="back" id="cNext" aria-label="Next page">&rsaquo;</button><button class="back" id="cZoom">View larger</button></div>
+  </div>
+</div>
+
 <div class="layer" id="slideLayer" role="dialog" aria-modal="true" aria-label="Project slides">
   <div class="viewer">
     <img id="sImg" alt="">
@@ -251,8 +283,7 @@ const PROJECTS=[
  {title:"Dollar Tree: Holiday Magic",tab:"work",desc:"",type:"Creative Advertising Campaign",team:"Khalil Blount & Ella Bartosik",deliverables:"Social Media, Out-of-Home, Video Spots",heading:"Overview",challenge:["Dollar Tree is known for being affordable, but during the holidays few people think of it as a place to shop for gifts, even though it’s full of them. Meanwhile, nearly half of Gen Z (47%) and millennial (43%) shoppers plan to buy gifts for themselves this season (<a href=\"https://www2.deloitte.com/us/en/insights/industry/retail-distribution/holiday-retail-sales-consumer-survey.html\" target=\"_blank\" rel=\"noopener\">Deloitte</a>).", "The idea: Blame it on the holiday Magic! Instead of lecturing about budgets, the campaign leans into sarcasm and relatability: if you’re already treating yourself, why not do it where you can grab everyone’s gifts too? Treating everyone, yourself included, for just a few dollars is the real holiday magic."],tags:[],url:"#",img:"images/dollartree/cover.jpg",hover:"images/dollartree/hover.jpg",hoverPos:"50% 50%",video:{src:"assets/dollar-tree-spot.mp4",poster:"images/dollartree/spot-poster.jpg",after:5},slides:["images/dollartree/01-cover.jpg", "images/dollartree/02-hero.jpg", "images/dollartree/03-subway.jpg", "images/dollartree/04-poster-wall.jpg", "images/dollartree/05-bus-shelter.jpg", "images/dollartree/06-social.jpg", "images/dollartree/07-apple-pay.jpg", "images/dollartree/08-elves.jpg"],c1:"#a51c20",c2:"#6d0f13"},
  {title:"Carolina Safety Supply",tab:"work",desc:"",type:"Corporate Identity & Print Collateral",role:"Brand Design, Production Artist",deliverables:"Visual Identity, Typography, Corporate Collateral & Uniforms",challenge:["Founded by a retired Chief of Police, Carolina Safety Supply needed to aggressively enter the law enforcement and emergency gear market as a trusted authority. The mission was to translate the founder's deeply personal industry roots into an authoritative corporate identity that projected institutional strength and protection. I anchored the entire rebrand around “A Symbol of Protection,” refining a Celtic knot inspired by the founder's personal tattoo into a sharp, geometric vector mark encased in a defensive shield.", "Steering away from overly aggressive industry colors, I established a clean \"Safety Blue\" and Black corporate palette engineered specifically to capture lucrative government and B2B contracts. Deployed consistently across corporate collateral, presentation folders, and physical team apparel, the robust new identity firmly positions the company as a premier partner for high-level safety equipment."],tags:[],url:"#",img:"images/carolina/cover.jpg",hover:"images/carolina/hover.jpg",hoverPos:"50% 50%",slides:["images/carolina/01-primary.jpg", "images/carolina/02-marks.jpg", "images/carolina/03-sketch.jpg", "images/carolina/04-evolution.jpg", "images/carolina/05-team.jpg", "images/carolina/06-collateral.jpg"],c1:"#87d0f2",c2:"#04507a"},
  {title:"Family Legacy Financial Solutions",tab:"work",desc:"",type:"Social Media & Print Marketing Campaign",deliverables:"Social Media Ads, Print Collateral",heading:"Overview",challenge:["A lead-generation campaign for Family Legacy Financial Solutions, a wealth management firm, aimed at tech professionals with stock options. Four social ads, from illustrated to photographic, speak directly to the pain point of overpaying in taxes and drive to a free guide.", "The guide and a services brochure carry the same green, shield-led identity into print, so every touchpoint feels like one brand."],layout:"brick",ratios:[1.0, 0.9042, 1.0, 1.0, 0.6667, 0.6667],tags:[],url:"#",img:"images/familylegacy/cover.jpg",hover:"images/familylegacy/hover.jpg",hoverPos:"50% 50%",slides:["images/familylegacy/01-stock-options-taxes.jpg", "images/familylegacy/02-unlock-secrets.jpg", "images/familylegacy/03-master-stock-options.jpg", "images/familylegacy/04-maximize-minimize.jpg", "images/familylegacy/05-guide.jpg", "images/familylegacy/06-brochure.jpg"],c1:"#2b3a2f",c2:"#14201a"},
- {title:"AMC Theatres: We Miss You…",tab:"work",desc:"",type:"Brand Activation Campaign",team:"Khalil Blount & Ella Bartosik",deliverables:"Brand Activation, Out-of-Home, Social Media, Video Spot",heading:"Overview",challenge:["People have forgotten what the real cinema experience is. It’s not just the movie, it’s the shared laughter, gasps, and the way theaters amplify every emotion. Movies aren’t just watched. They’re felt.", "The activation: three products available ONLY IN THEATERS, the Spill-Proof Bucket Lid, Tear Catcher Goggles, and Laugh Leveler. Each is designed to enhance the movie experience and pair with the films that bring out your emotions, whether it’s a tearjerker, a comedy, or a thriller, so everyone can feel in full without holding back."],tags:[],url:"#",img:"images/amc/cover.jpg",hover:"images/amc/hover.jpg",hoverPos:"50% 50%",video:{src:"assets/amc-we-miss-you.mp4",poster:"images/amc/spot-poster.jpg",after:3},slides:["images/amc/01-we-miss-you.jpg", "images/amc/06-marquee-1.jpg", "images/amc/07-marquee-2.jpg", "images/amc/08-marquee-3.jpg", "images/amc/02-feel-in-full.jpg", "images/amc/03-bucket-lid.jpg", "images/amc/04-tear-catcher.jpg", "images/amc/05-laugh-leveler.jpg", "images/amc/09-social.jpg", "images/amc/10-team.jpg"],c1:"#c8102e",c2:"#5a0a14"},
- {title:"Digital Illustration",tab:"personal",desc:"",type:"Character Art • Poster Illustration",role:"Illustrator",deliverables:"Poster Art, Apparel Graphics, Character Illustration, Sketchbook Studies",heading:"Overview",challenge:["A selection of original illustration work spanning comic-style character art, apparel graphics, event posters, portraits and sketchbook studies. Hand-drawn linework and digital color come together in bold, high-energy pieces that put character and personality first.", "The range runs from a Greenville Comic Con poster and streetwear-inspired graphics to a stylized portrait and a dog-friendly fundraiser flyer, plus inked and pencil studies. It’s the drawing foundation behind everything I design: strong shapes, clear storytelling, and a style that adapts to the brand or the moment."],layout:"brick",ratios:[1.415, 1.0, 1.0, 1.3331, 1.0, 1.2012, 1.34, 1.0725, 1.0631],tags:[],url:"#",img:"images/illustration/cover.jpg",hover:"images/illustration/hover.jpg",hoverPos:"50% 50%",slides:["images/illustration/01-comic-con.jpg", "images/illustration/02-paws-and-pints.jpg", "images/illustration/03-dirty-fashion.jpg", "images/illustration/04-ufo.jpg", "images/illustration/05-tar-heel-tee.jpg", "images/illustration/06-portrait.jpg", "images/illustration/07-the-thing.jpg", "images/illustration/08-sketch-1.jpg", "images/illustration/09-sketch-2.jpg"],c1:"#c8102e",c2:"#1f3a6b"},
+ {title:"Digital Illustration",tab:"personal",desc:"",type:"Character Art • Poster Illustration",role:"Illustrator",deliverables:"Poster Art, Apparel Graphics, Character Illustration, Sketchbook Studies",heading:"Overview",challenge:["A selection of original illustration work spanning comic-style character art, apparel graphics, event posters, portraits and sketchbook studies. Hand-drawn linework and digital color come together in bold, high-energy pieces that put character and personality first.", "The range runs from a Greenville Comic Con poster and streetwear-inspired graphics to a stylized portrait and a dog-friendly fundraiser flyer, plus inked and pencil studies. It’s the drawing foundation behind everything I design: strong shapes, clear storytelling, and a style that adapts to the brand or the moment."],layout:"brick",ratios:[1.415, 1.0, 1.0, 1.3331, 0.5, 0.5, 1.2012, 1.34, 1.0725, 1.0631],wide:[4,5],tags:[],url:"#",img:"images/illustration/cover.jpg",hover:"images/illustration/hover.jpg",hoverPos:"50% 50%",slides:["images/illustration/01-comic-con.jpg", "images/illustration/02-paws-and-pints.jpg", "images/illustration/03-dirty-fashion.jpg", "images/illustration/04-ufo.jpg", "images/illustration/05-dr-ted-state-champs.jpg", "images/illustration/05b-tar-heel-closeup.jpg", "images/illustration/06-portrait.jpg", "images/illustration/07-the-thing.jpg", "images/illustration/08-sketch-1.jpg", "images/illustration/09-sketch-2.jpg"],c1:"#c8102e",c2:"#1f3a6b"},
  {title:"Sport/Gameday",tab:"personal",desc:"",type:"Team Graphics • Player Posters",heading:"Overview",challenge:["Game day lives on screens and in arenas, and these graphics are built for both. This selection of team graphics and player posters was created for digital channels, sports media, and live gameday productions: signing announcements, matchup promos, senior banners, and athlete spotlights, all tuned to each team’s colors and energy. Every piece is designed to stop the scroll, put the athlete front and center, and make game night feel like an event."],layout:"brick",ratios:[0.6682, 1.2945, 1.6664, 1.489, 1.4819, 1.4819, 1.4876, 1.4876, 1.2308, 1.2495, 1.2483, 1.2315, 1.2315, 1.2315, 1.2315],tags:[],url:"#",img:"images/sport/cover.jpg",hover:"images/sport/hover.jpg",hoverPos:"50% 50%",slides:["images/sport/01-chargers-jv.jpg", "images/sport/02-caleb-wilson.jpg", "images/sport/03-softball-banner.jpg", "images/sport/04-myles-joy.jpg", "images/sport/05-cash-easley.jpg", "images/sport/06-braxton-pegram.jpg", "images/sport/07-bucks-senior.jpg", "images/sport/08-laura-laverde.jpg", "images/sport/09-fairplay-select.jpg", "images/sport/10-unc-committed.jpg", "images/sport/11-kayla-committed.jpg", "images/sport/12-firebirds-college-day.jpg", "images/sport/13-firebirds-health.jpg", "images/sport/14-firebirds-youth.jpg", "images/sport/15-firebirds-tournament.jpg"],c1:"#6f5bff",c2:"#2a1f8f"},
  {title:"Brand Book",tab:"personal",desc:"",type:"Bespoke Logo • Brand Identity",heading:"Overview",challenge:["A growing library of custom logos and brand marks, each built from scratch to give a business something worth remembering. Across home services, food and hospitality, sports and education, media, retail, and events, every identity starts with the client’s personality and audience, whether that calls for a hand-lettered script, a bold mascot, or a clean, confident wordmark. Each mark is built to hold up everywhere a brand lives, from signage and uniforms to packaging and screens. The goal never changes: clear, ownable branding that works as hard as the business behind it."],layout:"brick",ratios:[0.7333, 0.6411, 0.7367, 0.4878, 1.0, 0.3978, 0.9733, 1.0, 0.4189, 0.6922, 0.4633, 0.3956, 0.9933, 0.91, 0.4889, 1.4033, 1.28, 0.5722, 1.1611, 0.6933],tags:[],url:"#",img:"images/brandbook/cover.jpg",hover:"images/brandbook/hover.jpg",hoverPos:"50% 50%",slides:["images/brandbook/logo-01.jpg", "images/brandbook/logo-02.jpg", "images/brandbook/logo-03.jpg", "images/brandbook/logo-04.jpg", "images/brandbook/logo-05.jpg", "images/brandbook/logo-06.jpg", "images/brandbook/logo-07.jpg", "images/brandbook/logo-08.jpg", "images/brandbook/logo-09.jpg", "images/brandbook/logo-10.jpg", "images/brandbook/logo-11.jpg", "images/brandbook/logo-12.jpg", "images/brandbook/logo-13.jpg", "images/brandbook/logo-14.jpg", "images/brandbook/logo-15.jpg", "images/brandbook/logo-16.jpg", "images/brandbook/logo-17.jpg", "images/brandbook/logo-18.jpg", "images/brandbook/logo-19.jpg", "images/brandbook/logo-20.jpg"],c1:"#0b7a75",c2:"#0a3d4a"}
 ];
@@ -299,7 +330,7 @@ function openProj(p,from){
   $("#pc").style.background=p.c1;{const im=$("#pimg");im.hidden=!p.img;if(p.img)im.src=p.img}
   $("#ptags").innerHTML=p.tags.map(t=>`<span>${t}</span>`).join("");
   cur=p;{const sh=i=>`<button class="shot" data-i="${i}" aria-label="Open image ${i+1} of ${p.slides.length}"><img src="${p.slides[i]}" alt="" loading="lazy"></button>`;const box=$("#pshots"),n=(p.slides||[]).length;
-    if(p.layout==="brick"&&p.ratios){box.className="shots brick";const cols=[[],[]],h=[0,0];for(let i=0;i<n;i++){const c=h[0]<=h[1]?0:1;cols[c].push(sh(i));h[c]+=p.ratios[i]}box.innerHTML=cols.map(c=>`<div class="col">${c.join("")}</div>`).join("")}
+    if(p.layout==="brick"&&p.ratios){box.className="shots";const W=p.wide||[];let out="",cols=[[],[]],h=[0,0];const flush=()=>{if(cols[0].length||cols[1].length)out+=`<div class="shots brick" style="margin:0">`+cols.map(c=>`<div class="col">${c.join("")}</div>`).join("")+"</div>";cols=[[],[]];h=[0,0]};for(let i=0;i<n;i++){if(W.includes(i)){flush();out+=sh(i)}else{const c=h[0]<=h[1]?0:1;cols[c].push(sh(i));h[c]+=p.ratios[i]}}flush();box.innerHTML=out}
     else{box.className="shots";const vid=v=>`<div class="vidwrap"><video controls playsinline preload="metadata" poster="${v.poster||""}" src="${v.src}"></video></div>`;box.innerHTML=Array.from({length:n},(_,i)=>sh(i)+(p.video&&p.video.after===i?vid(p.video):"")).join("")}}lastShot=null;$("#projLayer").scrollTop=0;openLayer($("#projLayer"),from);
 }
 let slides=[],si=0,tx=0,cur=null,lastShot=null;
@@ -324,9 +355,59 @@ $("#games").innerHTML=GAMES.map(g=>`<div class="game"><div class="art" style="${
 $("#libBtn").onclick=e=>openLayer($("#libLayer"),e.currentTarget);
 
 document.querySelectorAll(".dk").forEach(d=>{
-  const on=()=>$("#dl").textContent=d.dataset.l,off=()=>$("#dl").textContent="";
+  const on=()=>{$("#dl").textContent=d.dataset.l;$("#dl").classList.remove("hint")},off=()=>{$("#dl").textContent="";$("#dl").classList.remove("hint");if(window.comicHint)window.comicHint()};
   d.addEventListener("focus",on);d.addEventListener("mouseenter",on);d.addEventListener("blur",off);d.addEventListener("mouseleave",off);
 });
+
+
+/* ===== Portfolio comic flipbook ===== */
+const COMIC=Array.from({length:20},(_,i)=>"images/comic/p"+String(i+1).padStart(2,"0")+".jpg");
+{
+  const L=$("#comicLayer"),stage=$("#cstage"),bk=$("#cbk"),btn=$("#comicBtn"),dl=$("#dl");
+  let built="",pos=0,page=0,leaves=[],busy=0;
+  const single=()=>innerWidth<760;
+  const N=COMIC.length/2;
+  const hintOn=()=>{try{return !sessionStorage.getItem("comicSeen")}catch(e){return true}};
+  function setHint(){if(hintOn()){dl.textContent="★ Start here: Portfolio Comic";dl.classList.add("hint")}else{dl.classList.remove("hint")}}
+  btn.addEventListener("mouseleave",()=>setTimeout(setHint,0));btn.addEventListener("blur",()=>setTimeout(setHint,0));
+  if(hintOn()){setHint()}else btn.classList.remove("bounce");
+  function size(){
+    const sg=single(),ph=Math.max(260,Math.min(innerHeight-150,(sg?innerWidth-40:innerWidth-60)/(sg?1:2)/0.646,980));
+    L.style.setProperty("--ph",ph+"px");L.style.setProperty("--pw",(ph*0.646)+"px");stage.classList.toggle("single",sg)
+  }
+  function build(){
+    const mode=single()?"s":"d";if(built===mode)return;built=mode;bk.innerHTML="";leaves=[];
+    if(mode==="s"){bk.style.transform="none";bk.innerHTML='<div class="csingle"><img alt=""></div>';updateS();return}
+    for(let k=0;k<N;k++){const f=document.createElement("div");f.className="cleaf";
+      f.innerHTML=`<div class="cface"><img alt="Comic page ${2*k+1}" decoding="async" src="${COMIC[2*k]}"></div><div class="cface bk"><img alt="Comic page ${2*k+2}" decoding="async" src="${COMIC[2*k+1]}"></div>`;
+      bk.appendChild(f);leaves.push(f)}
+    z();shift();count()
+  }
+  function z(){leaves.forEach((f,k)=>{if(!f._t)f.style.zIndex=k<pos?k:N-k})}
+  function shift(){bk.style.transform=pos===0?"translateX(-25%)":pos===N?"translateX(25%)":"translateX(0)"}
+  function count(){const c=$("#cCount");if(single()){c.textContent=(page+1)+" / "+COMIC.length;return}
+    c.textContent=pos===0?"Cover":pos===N?COMIC.length+" / "+COMIC.length:(2*pos)+"–"+(2*pos+1)+" / "+COMIC.length}
+  function updateS(){bk.querySelector("img").src=COMIC[page];bk.querySelector("img").alt="Comic page "+(page+1);count()}
+  function turn(d){
+    if(single()){const np=Math.min(COMIC.length-1,Math.max(0,page+d));if(np!==page){page=np;updateS()}return}
+    const np=pos+d;if(np<0||np>N)return;
+    const f=leaves[d>0?pos:np];f._t=1;f.style.zIndex=60;f.classList.toggle("fl",d>0);pos=np;shift();count();
+    setTimeout(()=>{f._t=0;z()},950)
+  }
+  function open(from){
+    size();build();L.scrollTop=0;if(!single()){}
+    try{sessionStorage.setItem("comicSeen","1")}catch(e){}btn.classList.remove("bounce");setHint();
+    openLayer(L,from);$("#cNext").focus({preventScroll:true})
+  }
+  btn.onclick=e=>open(e.currentTarget);
+  $("#cBack").onclick=closeLayers;$("#cPrev").onclick=()=>turn(-1);$("#cNext").onclick=()=>turn(1);
+  $("#cZoom").onclick=e=>{lastShot=e.currentTarget;const i=single()?page:pos===0?0:pos===N?COMIC.length-1:2*pos-1;openSlides({slides:COMIC},i)};
+  stage.addEventListener("click",e=>{const r=stage.getBoundingClientRect();turn(single()?(e.clientX>r.left+r.width/2?1:-1):(e.clientX>r.left+r.width/2?1:-1))});
+  let sx=0;stage.addEventListener("touchstart",e=>{sx=e.changedTouches[0].clientX},{passive:true});
+  stage.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){turn(dx<0?1:-1);e.preventDefault()}});
+  addEventListener("resize",()=>{if(L.classList.contains("on")){size();const m=single()?"s":"d";if(built!==m){built="";build()}}});
+  window.comicHint=setHint;window.comicTurn=turn;window.comicOn=()=>L.classList.contains("on");
+}
 
 /* Remote-style controls: arrows move, Enter selects, Esc goes back */
 document.addEventListener("keydown",e=>{
@@ -335,6 +416,7 @@ document.addEventListener("keydown",e=>{
     else if(e.key==="ArrowRight"){step(1);e.preventDefault()}
     else if(e.key==="ArrowLeft"){step(-1);e.preventDefault()}
     return}
+  if(window.comicOn&&window.comicOn()&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){window.comicTurn(e.key==="ArrowRight"?1:-1);e.preventDefault();return}
   if($("#contactLayer").classList.contains("on")){if(e.key==="Escape"||e.key==="Backspace"||e.key==="Delete"){closeContact();e.preventDefault()}return}
   if(e.key==="Escape"||(e.key==="Backspace"||e.key==="Delete")&&document.querySelector(".layer.on")){closeLayers();return}
   if(document.querySelector(".layer.on"))return;
